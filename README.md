@@ -1,5 +1,7 @@
 # 3D-engine
 
+![basic_scene.gif](demo.gif)
+
 ### Work with this repository
 
 To clone this repository on your local computer please run:
@@ -37,3 +39,8 @@ CXXFLAGS = -Wall -Wno-c++11-extensions
 ### What is the project about
 
 This is a project I did on my own during my free time because I was curious about 3D rendering and wanted to practice C++. The goal was to render 3D objects on my computer screen without using any 3D libraries like OpenGL.
+
+:warning: Because I just created this repository the project is still not well commented.
+
+See under a view of the basic scene proposed in `main.cpp` (the application is on the right, the left pannel is a terminal instance):
+![basic_scene.png](basic_scene.png)
