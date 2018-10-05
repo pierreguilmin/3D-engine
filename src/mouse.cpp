@@ -17,7 +17,7 @@ int Mouse::get_move_y(const sf::RenderWindow &window) {
 	return move_y;
 }
 
-// extends sf::Mouse inherited function
+// extend sf::Mouse inherited function
 void Mouse::setPosition(const sf::Vector2i &position, const sf::Window &relativeTo) {
 	sf::Mouse::setPosition(position, relativeTo);
 

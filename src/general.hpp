@@ -4,7 +4,6 @@
 #include <iostream>
 #include <iomanip>
 #include <cmath>
-#include <fstream>
 #include <numeric>
 #include <SFML/Graphics.hpp>
 

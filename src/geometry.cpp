@@ -48,7 +48,7 @@ double Plane3d::signed_distance_from_point_to_plane(const Vector3d &v) const {
 	return v * normal + get_equation_value_of_d() / normal.norm();
 }
 
-// #TODO: comment missing
+// #TODO: missing comment
 bool Plane3d::handle_intersection_segment_with_plane(Segment3d &s) const {
 	double da = signed_distance_from_point_to_plane(s.a);
 	double db = signed_distance_from_point_to_plane(s.b);
@@ -89,7 +89,7 @@ sf::Vertex Plane3d::get_point_projection_on_plane(Vector3d &v) const {
 // ## Camera3d #################################
 // ##############################################
 
-// #TODO: missing comment
+// #TODO: explain frustrum creation
 Camera3d::Camera3d(const Vector3d _position,
 	               const double _theta_x,
 	               const double _theta_y,
@@ -122,6 +122,7 @@ void Camera3d::rotate(const double mouse_move_x, const double mouse_move_y) {
 	theta_y += as_radian(mouse_move_x) * CAMERA_ROTATION_SENSIBILITY;
 }
 
+// #TODO: missing comment
 void Camera3d::move(const DIRECTION direction) {
 	Vector3d normal(cos(theta_x) * sin(theta_y), - sin(theta_x), cos(theta_x) * cos(theta_y));
 	normal = normal.get_normalized();
@@ -264,6 +265,7 @@ void Solid3d::set_center(const Vector3d &_center) {
 	center = _center;
 }
 
+// #TODO: missing comment
 void Solid3d::render_solid(sf::RenderWindow &window, const Camera3d &camera) {
 	figure.clear();
 
@@ -292,7 +294,6 @@ void Solid3d::rotate(const Vector3d &rotation_center, const Vector3d &axis, cons
 
 	if (object_axis) 
 		center_of_rotation = center;
-
 
 	for (auto &s : edges) {
 		s.a.rotate(center_of_rotation, axis, theta);
