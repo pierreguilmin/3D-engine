@@ -1,0 +1,9 @@
+# mac garbage
+.DS_Store
+
+# application
+3D-engine
+
+# every .o and .d
+obj/*.o
+obj/*.d
