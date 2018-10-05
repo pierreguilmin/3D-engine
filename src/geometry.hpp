@@ -26,6 +26,8 @@ public:
 																							   b.color = _color; }
 	Segment3d(const Segment3d &s) : a(s.a), b(s.b) {}
 
+	Segment3d& operator=(const Segment3d &s);
+
 friend class Plane3d;
 friend class Camera3d;
 friend class Solid3d;
@@ -46,6 +48,8 @@ public:
 	Plane3d() : base(Vector3d()), normal(Vector3d()) {}
 	Plane3d(const Vector3d &_base, const Vector3d &_normal) : base(_base), normal(_normal) {}
 	Plane3d(const Plane3d &p) : base(p.base), normal(p.normal) {}
+
+	Plane3d& operator=(const Plane3d &p);
 
 	double get_equation_value_of_d() const;
 	double signed_distance_from_point_to_plane(const Vector3d &v) const;

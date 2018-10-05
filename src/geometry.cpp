@@ -1,8 +1,33 @@
 #include "geometry.hpp"
 
 // ##############################################
+// ## Segment3d #################################
+// ##############################################
+
+Segment3d& Segment3d::operator=(const Segment3d &s) {
+
+	if (this != &s) {
+		a = s.a;
+		b = s.b;
+	}
+
+	return *this;
+}
+
+
+
+// ##############################################
 // ## Plane3d ###################################
 // ##############################################
+
+Plane3d& Plane3d::operator=(const Plane3d &p) {
+	if (this != &p) {
+		base   = p.base;
+		normal = p.normal;
+	}
+
+	return *this;
+}
 
 // p(x, y, z) in plane [n(a, b, c), b] ⟺ n . (p - b)        = 0
 // 				                       ⟺ n.p - n.b          = 0
