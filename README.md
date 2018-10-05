@@ -44,3 +44,11 @@ This is a project I did on my own during my free time because I was curious abou
 
 See under a view of the basic scene proposed in `main.cpp` (the application is on the right, the left pannel is a terminal instance):
 ![basic_scene.png](basic_scene.png)
+
+
+### The commands
+
+The commands to move in the 3D space are really intuitive and shouln't cause problem:
+* Move your mouse to see around
+* Use \[W, A, S, D\] to go \[front, left, back, right\] (front and back are in the direction where your mouse points)
+* Use \[Q, E\] to go \[up, down\]
