@@ -32,9 +32,11 @@ int main()
                                          Vector3d(-120, 0, -120, sf::Color::Cyan )));
 
 
-    // moving_cube
+    // cube inside cube
     Solid3d cube(Solid3d::SOLID_TYPE::CUBE, "50");
     cube.set_center(Vector3d(-60-50, -50, -50));
+    Solid3d smaller_cube(Solid3d::SOLID_TYPE::CUBE, "25");
+    smaller_cube.set_center(Vector3d(-60-25, -25, -25));
 
 
     // rotating sphere
@@ -92,6 +94,7 @@ int main()
         colorful_plane.render_solid(window, camera);
 
         cube.render_solid(window, camera);
+        smaller_cube.render_solid(window, camera);
 
         rotating_sphere.rotate(Vector3d(), Vector3d(1, 1, 0), 3, true);
         rotating_sphere.render_solid(window, camera);
