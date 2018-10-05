@@ -9,7 +9,7 @@ To clone this repository on your local computer please run:
 $ git clone https://github.com/PierreGuilmin/3D-engine.git
 ```
 
-This project was written under C++ (C++11). It uses the open-source library [SFML](https://www.sfml-dev.org/index.php) (SFML 2.5.0) which is a cross-platform library written in C++ to open window, draw 2d lines/images, handle the keyboard and the mouse... The easiest way to install it on a mac is by using the (famous) [🍺 Homebrew](https://brew.sh) package manager:
+This project was written under C++ (C++11). It uses the open-source library [SFML](https://www.sfml-dev.org/index.php) (SFML 2.5.0) which is a cross-platform library written in C++ to open window, draw 2d lines/images, handle the keyboard and the mouse... The easiest way to install it on a mac is by using the (famous) 🍺 [Homebrew](https://brew.sh) package manager:
 ```bash
 $ brew install sfml
 ```
@@ -38,7 +38,7 @@ CXXFLAGS = -Wall -Wno-c++11-extensions
 
 ### What is the project about
 
-This is a project I did on my own during my free time because I was curious about 3D rendering and wanted to practice C++. The goal was to render 3D objects on my computer screen without using any 3D libraries like OpenGL.
+This is a project I did on my own during my free time because I was curious about 3D rendering and wanted to practice C++. The goal was to render 3D objects on my computer screen without using any 3D libraries like OpenGL, doing every projections from the 3D space to the 2D screen on my own, as well as handling the camera rotation and objects movements.
 
 :warning: Because I just created this repository the project is still not well commented.
 
@@ -50,7 +50,7 @@ See under a view of the basic scene proposed in `main.cpp` (the application is o
 
 The commands to move in the 3D space are really intuitive and shouln't cause problem:
 * Move your mouse to see around
-* Use \[W, A, S, D\] to go \[front, left, back, right\] (front and back are in the direction where your mouse points)
+* Use \[W, A, S, D\] to go \[front, left, back, right\] (front and back are going in the direction where your mouse points)
 * Use \[Q, E\] to go \[up, down\]
 
 
@@ -64,7 +64,7 @@ The following files are the heart of the engine:
 * `geometry.hpp` and `geometry.cpp`: implements the `Segment3d`, `Plane3d`, `Solid3d` and `Camera` classes
 
 The `main.cpp` setup the window, create the objects and handle the event and the display in the main loop of the program.  
-Notice how easy it is to create:
+Notice how easy it is to create and render:
 * a cube of size 50 centered in (0, 0, 0):
     ```C++
     // → at the beginning of the main
