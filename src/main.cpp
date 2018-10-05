@@ -5,6 +5,7 @@
 #define FPS 60
 #define LOOP_TIME (1000.0 / FPS)
 
+
 int main()
 {
     sf::Clock loop_timer;
@@ -12,6 +13,8 @@ int main()
 
 	srand(time(NULL));
 
+
+    // setup window
     sf::ContextSettings window_settings;
     window_settings.antialiasingLevel = 8;
     sf::RenderWindow window(sf::VideoMode(INITIAL_WINDOW_WIDTH, INITIAL_WINDOW_HEIGHT), "3D-engine", sf::Style::Close | sf::Style::Resize, window_settings);
@@ -20,7 +23,7 @@ int main()
     Mouse::setPosition(sf::Vector2i(INITIAL_WINDOW_WIDTH / 2, INITIAL_WINDOW_HEIGHT / 2), window);
 
 
-    // colorful plane
+    // create solid: colorful plane
     Solid3d colorful_plane;
     colorful_plane.add_segment(Segment3d(Vector3d(-120, 0, -120, sf::Color::Cyan ),
                                          Vector3d(120 , 0, -120, sf::Color::Blue )));
@@ -32,30 +35,30 @@ int main()
                                          Vector3d(-120, 0, -120, sf::Color::Cyan )));
 
 
-    // cube inside cube
+    // create solid: cube inside cube
     Solid3d cube(Solid3d::SOLID_TYPE::CUBE, "50");
     cube.set_center(Vector3d(-60-50, -50, -50));
     Solid3d smaller_cube(Solid3d::SOLID_TYPE::CUBE, "25");
     smaller_cube.set_center(Vector3d(-60-25, -25, -25));
 
 
-    // rotating sphere
+    // create solid: rotating sphere
     Solid3d rotating_sphere(Solid3d::SOLID_TYPE::SPHERE, "40:20:50");
     rotating_sphere.set_center(Vector3d(60, 0, 0));
 
 
-
+    // create camera
     Camera3d camera(Vector3d(0, -120, -230), -30, 0, 0);
+
 
     loop_timer.restart();
     current_time.restart();
-
-    cout << endl;
 
     while (window.isOpen())
     {
         sf::Event event;
 
+        // handle events
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
                 window.close();
@@ -90,7 +93,6 @@ int main()
         // rendering
         window.clear();
 
-       
         colorful_plane.render_solid(window, camera);
 
         cube.render_solid(window, camera);
@@ -101,6 +103,7 @@ int main()
 
         window.display();
 
+        // other
         Parameters::print_mean_CPU_usage(cout, loop_timer.getElapsedTime().asMilliseconds(), LOOP_TIME);
 
         sf::sleep(sf::milliseconds(LOOP_TIME - loop_timer.getElapsedTime().asMilliseconds()));
