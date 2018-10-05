@@ -25,10 +25,13 @@ $ make clean
 
 If you don't have `clang++` you can compile the project with any another compiler (`g++` for example), by modifying the two first lines of the `makefile` to match your compiler:
 ```bash
+# current makefile first lines
 CXX      = clang++ # compiler name
 CXXFLAGS = -Weverything -Wno-c++11-extensions -Wno-padded -Wno-c++98-compat -Wno-float-conversion -Wno-conversion -std=c++11 # compiler flags
 
-# ...
+# change for something like
+CXX      = g++
+CXXFLAGS = -Wall -Wno-c++11-extensions
 ```
 
 ### What is the project about
