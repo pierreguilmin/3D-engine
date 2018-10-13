@@ -1,7 +1,7 @@
 #ifndef MOUSE_HPP
 #define MOUSE_HPP
 
-#include "general.hpp"
+#include <SFML/Graphics.hpp>
 
 
 class Mouse : public sf::Mouse {
