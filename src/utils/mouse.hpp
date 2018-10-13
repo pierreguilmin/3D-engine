@@ -3,7 +3,6 @@
 
 #include <SFML/Graphics.hpp>
 
-
 class Mouse : public sf::Mouse {
 private:
 	static unsigned last_position_x, last_position_y;
