@@ -7,3 +7,6 @@
 # every .o and .d
 obj/*.o
 obj/*.d
+
+# temp files
+temp/

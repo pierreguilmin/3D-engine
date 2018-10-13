@@ -1,6 +1,6 @@
 # 3D-engine
 
-![basic_scene.gif](demo.gif)
+![basic_scene.gif](game_images/demo.gif)
 
 ### Work with this repository
 
@@ -43,7 +43,7 @@ This is a project I did on my own during my free time because I was curious abou
 :warning: Because I just created this repository the project is still not well commented.
 
 See under a view of the basic scene proposed in `main.cpp` (the application is on the right, the left pannel is a terminal instance):
-![basic_scene.png](basic_scene.png)
+![basic_scene.png](game_images/basic_scene.png)
 
 
 ### The commands
