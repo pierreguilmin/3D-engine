@@ -1,7 +1,7 @@
 #ifndef VECTOR3D_HPP
 #define VECTOR3D_HPP
 
-#include "general.hpp"
+#include "../utils/general.hpp"
 
 class Vector3d {
 private:

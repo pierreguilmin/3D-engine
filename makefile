@@ -2,8 +2,8 @@ CXX      = clang++
 CXXFLAGS = -Weverything -Wno-c++11-extensions -Wno-padded -Wno-c++98-compat -Wno-float-conversion -Wno-conversion -std=c++11
 EXEC     = 3D-engine
 LIB      = -lsfml-window -lsfml-graphics -lsfml-system
-SRC      = $(wildcard src/*.cpp)
-OBJ      = $(patsubst src/%.cpp,obj/%.o,$(SRC))
+SRC      = $(shell find src -type f -name '*.cpp')
+OBJ      = $(patsubst src/%.cpp, obj/%.o, $(SRC))
 DEP      = $(OBJ:.o=.d)
 
 
@@ -14,6 +14,8 @@ all: print_compilation $(EXEC) open
 
 
 print_compilation:
+	@echo $(SRC)
+	@echo $(OBJ)
 	@printf '→ compilation...\n'
 
 
@@ -31,9 +33,9 @@ open:
 
 
 clean:
-	@printf '→ clean...'
-	rm -f obj/*.o
-	rm -f obj/*.d
+	@printf '→ clean...\n'
+	rm -f $(OBJ)
+	rm -f $(DEP)
 	rm -f $(EXEC)
 
 

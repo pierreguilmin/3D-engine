@@ -1,6 +1,6 @@
-#include "general.hpp"
-#include "geometry.hpp"
-#include "mouse.hpp"
+#include "utils/general.hpp"
+#include "utils/mouse.hpp"
+#include "geometry/geometry.hpp"
 
 #define FPS 60
 #define LOOP_TIME (1000.0 / FPS)

@@ -4,9 +4,9 @@
 # application
 3D-engine
 
-# every .o and .d
-obj/*.o
-obj/*.d
+# every .o and .d under the obj/ directory
+obj/**/*.o
+obj/**/*.d
 
-# temp files
+# temp files directory
 temp/

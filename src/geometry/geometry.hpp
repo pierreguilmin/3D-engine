@@ -1,7 +1,7 @@
 #ifndef GEOMETRY_HPP
 #define GEOMETRY_HPP
 
-#include "general.hpp"
+#include "../utils/general.hpp"
 #include "vector3d.hpp"
 
 #define PROJECTION_FACTOR 1024.0
