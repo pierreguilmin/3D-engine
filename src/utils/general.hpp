@@ -6,6 +6,7 @@
 #include <cmath>
 #include <numeric>
 #include <SFML/Graphics.hpp>
+#include "timer.hpp"
 
 using std::cout;
 using std::endl;
@@ -33,22 +34,6 @@ vector<string> parse_string(const string &string_to_parse, const char sep);
 int rand(const int a, const int b);
 double rand(const double a, const double b);
 sf::Color get_random_colour();
-
-
-
-// ##############################################
-// ## Timer #####################################
-// ##############################################
-
-class Timer : public sf::Clock {
-private:
-	sf::Time time;
-
-public:
-	Timer(const sf::Time &_time) : time(_time) { Clock(); }
-
-	bool is_done();
-};
 
 
 
