@@ -14,7 +14,7 @@ all: print_compilation $(EXEC) open
 
 
 print_compilation:
-	@printf '→ compilation...\n'
+	@printf '\n→ compilation...\n'
 
 
 $(EXEC): $(OBJ)
@@ -31,7 +31,7 @@ open:
 
 
 clean:
-	@printf '→ clean...\n'
+	@printf '\n→ clean...\n'
 	rm -f $(OBJ)
 	rm -f $(DEP)
 	rm -f $(EXEC)
