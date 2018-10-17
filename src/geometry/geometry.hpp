@@ -2,39 +2,11 @@
 #define GEOMETRY_HPP
 
 #include "../utils/general.hpp"
-#include "vector3d.hpp"
 #include "segment3d.hpp"
-
-#define PROJECTION_FACTOR 1024.0
-#define PROJECTION_MAX_DEPTH 800
+#include "plane3d.hpp"
 
 #define CAMERA_ROTATION_SENSIBILITY 0.25
 #define CAMERA_TRANSLATION_SENSIBILITY 4
-
-
-// ##############################################
-// ## Plane3d ###################################
-// ##############################################
-
-class Plane3d {
-private:
-	Vector3d base;
-	Vector3d normal;
-	
-public:
-	Plane3d() : base(Vector3d()), normal(Vector3d()) {}
-	Plane3d(const Vector3d &_base, const Vector3d &_normal) : base(_base), normal(_normal) {}
-	Plane3d(const Plane3d &p) : base(p.base), normal(p.normal) {}
-
-	Plane3d& operator=(const Plane3d &p);
-
-	double get_equation_value_of_d() const;
-	double signed_distance_from_point_to_plane(const Vector3d &v) const;
-	bool handle_intersection_segment_with_plane(Segment3d &s) const;
-	sf::Vertex get_point_projection_on_plane(Vector3d &v) const;
-};
-
-
 
 // ##############################################
 // ## Camera3d ##################################
