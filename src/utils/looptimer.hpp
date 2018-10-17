@@ -5,10 +5,10 @@
 
 class LoopTimer : public sf::Clock {
 private:
-    sf::Time time;
+    sf::Time loop_time;
 
 public:
-    LoopTimer(const sf::Time &_time) : time(_time) { Clock(); }
+    LoopTimer(const sf::Time &_loop_time) : loop_time(_loop_time) { Clock(); }
 
     bool is_done();
 };
