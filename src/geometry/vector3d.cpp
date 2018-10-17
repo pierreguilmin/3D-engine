@@ -1,11 +1,10 @@
 #include "vector3d.hpp"
 
 // ##############################################
-// ## overloaded operators ######################
+// ## overloaded  ###############################
 // ##############################################
 
 Vector3d& Vector3d::operator=(const Vector3d &v) {
-
 	if (this != &v) {
 		x = v.x;
 		y = v.y;
@@ -30,6 +29,14 @@ Vector3d Vector3d::operator+=(const Vector3d &v) {
 
 Vector3d Vector3d::operator-(const Vector3d &v) const {
 	return Vector3d(x - v.x, y - v.y, z - v.z, color);
+}
+
+Vector3d Vector3d::operator-=(const Vector3d &v) {
+	x -= v.x;
+	y -= v.y;
+	z -= v.z;
+
+	return *this;
 }
 
 Vector3d Vector3d::operator-() {
@@ -59,9 +66,9 @@ double Vector3d::operator*(const Vector3d &v) const {
 std::ostream& operator<<(std::ostream& os, const Vector3d &v) {
 	os << std::setprecision(2) << std::fixed;
 
-	os << "x: "  << std::setw (6) << v.x;
-	os << " | y: " << std::setw (6) << v.y;
-	os << " | z: " << std::setw (6) << v.z;
+	os << "x: "    << std::setw(6) << v.x;
+	os << " | y: " << std::setw(6) << v.y;
+	os << " | z: " << std::setw(6) << v.z;
 
 	os << std::endl;
 
@@ -78,25 +85,23 @@ Vector3d Vector3d::get_normalized() const {
 	return (*this) * (1 / this->norm());
 }
 
-double Vector3d::distance_to_point(const Vector3d &v) const {
+double Vector3d::distance_to(const Vector3d &v) const {
 	return ((*this) - v).norm();
 }
 
 // See https://en.wikipedia.org/wiki/Rotation_matrix#In_three_dimensions part "Rotation matrix from axis and angle"
-Vector3d Vector3d::rotate(const Vector3d &center, const Vector3d &axis, const double theta) {
-	Vector3d new_v(*this);
+void Vector3d::rotate(const Vector3d &center, const Vector3d &axis, const double theta) {
+	Vector3d temp(*this);
 
-	*this = *this - center;
+	*this -= center;
 
 	Vector3d ax = axis.get_normalized();
 	double ux = ax.x, uy = ax.y, uz = ax.z;
 	double c = cos(as_radian(theta)), s = sin(as_radian(theta));
 
-	new_v.x = x * (c + square(ux) * (1 - c))   + y * (ux * uy * (1 - c) - uz * s) + z * (ux * uz * (1 - c) + uy * s);
-	new_v.y = x * (uy * ux * (1 - c) + uz * s) + y * (c + square(uy) * (1 - c))   + z * (uy * uz * (1 - c) - ux * s);
-	new_v.z = x * (uz * ux * (1 - c) - uy * s) + y * (uz * uy * (1 - c) + ux * s) + z * (c + square(uz) * (1 - c));
+	temp.x = x * (c + square(ux) * (1 - c))   + y * (ux * uy * (1 - c) - uz * s) + z * (ux * uz * (1 - c) + uy * s);
+	temp.y = x * (uy * ux * (1 - c) + uz * s) + y * (c + square(uy) * (1 - c))   + z * (uy * uz * (1 - c) - ux * s);
+	temp.z = x * (uz * ux * (1 - c) - uy * s) + y * (uz * uy * (1 - c) + ux * s) + z * (c + square(uz) * (1 - c));
 
-	*this = new_v + center;
-
-	return *this;
+	*this = temp + center;
 }

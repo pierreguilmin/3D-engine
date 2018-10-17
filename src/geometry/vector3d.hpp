@@ -2,6 +2,7 @@
 #define VECTOR3D_HPP
 
 #include "../utils/general.hpp"
+#include <iomanip> // for std::setprecision and std::setw
 
 class Vector3d {
 private:
@@ -15,11 +16,12 @@ public:
 	Vector3d(const double _x, const double _y, const double _z, const sf::Color _color) : x(_x), y(_y), z(_z), color(_color) {}
 	Vector3d(const Vector3d &v) : x(v.x), y(v.y), z(v.z), color(v.color) {}
 
-	// overloaded operators
+	// operators
 	Vector3d& operator=(const Vector3d &v);
 	Vector3d operator+(const Vector3d &v) const;
 	Vector3d operator+=(const Vector3d &v);
 	Vector3d operator-(const Vector3d &v) const;
+	Vector3d operator-=(const Vector3d &v);
 	Vector3d operator-();
 	Vector3d operator*(const double factor) const;
 	Vector3d operator*=(const double factor);
@@ -28,8 +30,8 @@ public:
 	// other
 	double norm() const { return sqrt(x * x + y * y + z * z); }
 	Vector3d get_normalized() const;
-	double distance_to_point(const Vector3d &v) const;
-	Vector3d rotate(const Vector3d &center, const Vector3d &axis, const double theta);
+	double distance_to(const Vector3d &v) const;
+	void rotate(const Vector3d &center, const Vector3d &axis, const double theta);
 
 
 friend std::ostream& operator<<(std::ostream& os, const Vector3d &v);
