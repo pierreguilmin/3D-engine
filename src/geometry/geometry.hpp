@@ -3,37 +3,13 @@
 
 #include "../utils/general.hpp"
 #include "vector3d.hpp"
+#include "segment3d.hpp"
 
 #define PROJECTION_FACTOR 1024.0
 #define PROJECTION_MAX_DEPTH 800
 
 #define CAMERA_ROTATION_SENSIBILITY 0.25
 #define CAMERA_TRANSLATION_SENSIBILITY 4
-
-
-
-// ##############################################
-// ## Segment3d #################################
-// ##############################################
-
-class Segment3d {
-private:
-	Vector3d a, b;
-
-public:
-	Segment3d() : a(Vector3d()), b(Vector3d()) {}
-	Segment3d(const Vector3d &_a, const Vector3d &_b) : a(_a), b(_b) {}
-	Segment3d(const Vector3d &_a, const Vector3d &_b, const sf::Color _color) : a(_a), b(_b) { a.color = _color;
-																							   b.color = _color; }
-	Segment3d(const Segment3d &s) : a(s.a), b(s.b) {}
-
-	Segment3d& operator=(const Segment3d &s);
-
-friend class Plane3d;
-friend class Camera3d;
-friend class Solid3d;
-};
-
 
 
 // ##############################################
