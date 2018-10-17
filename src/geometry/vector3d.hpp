@@ -41,5 +41,4 @@ friend class Camera3d;
 friend class Solid3d;
 };
 
-
 #endif
