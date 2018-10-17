@@ -15,6 +15,7 @@ public:
 	Vector3d(const double _x, const double _y, const double _z) : x(_x), y(_y), z(_z), color(sf::Color::White) {}
 	Vector3d(const double _x, const double _y, const double _z, const sf::Color _color) : x(_x), y(_y), z(_z), color(_color) {}
 	Vector3d(const Vector3d &v) : x(v.x), y(v.y), z(v.z), color(v.color) {}
+	Vector3d(const Vector3d &v, const sf::Color _color) : x(v.x), y(v.y), z(v.z), color(_color) {}
 
 	// operators
 	Vector3d& operator=(const Vector3d &v);
@@ -37,8 +38,8 @@ public:
 friend std::ostream& operator<<(std::ostream& os, const Vector3d &v);
 friend class Segment3d;
 friend class Plane3d;
-friend class Camera3d;
 friend class Solid3d;
+friend class Camera3d;
 };
 
 #endif
