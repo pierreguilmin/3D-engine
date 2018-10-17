@@ -3,7 +3,7 @@
 
 #include <iomanip>
 #include <numeric>
-#include "timer.hpp"
+#include "looptimer.hpp"
 
 #define INITIAL_WINDOW_WIDTH  1900
 #define INITIAL_WINDOW_HEIGHT 1200
@@ -19,7 +19,7 @@ public:
     static int window_width;
     static int window_height;
     static std::vector<double> cpu_usage;
-    static Timer print_cpu_usage_timer;
+    static LoopTimer print_cpu_usage_timer;
 
 public:
     static void update_window_size(const int width, const int height) { window_width  = width;

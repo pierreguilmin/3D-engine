@@ -1,5 +1,5 @@
 CXX      = clang++
-CXXFLAGS = -Weverything -Wno-c++11-extensions -Wno-padded -Wno-c++98-compat -Wno-float-conversion -Wno-conversion -std=c++11
+CXXFLAGS = -Weverything -Wno-c++98-compat -Wno-c++11-extensions -Wno-padded -Wno-conversion
 EXEC     = 3D-engine
 LIB      = -lsfml-window -lsfml-graphics -lsfml-system
 SRC      = $(shell find src -type f -name '*.cpp')
@@ -14,8 +14,6 @@ all: print_compilation $(EXEC) open
 
 
 print_compilation:
-	@echo $(SRC)
-	@echo $(OBJ)
 	@printf '→ compilation...\n'
 
 

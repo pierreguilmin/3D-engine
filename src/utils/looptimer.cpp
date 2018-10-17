@@ -1,6 +1,6 @@
-#include "timer.hpp"
+#include "looptimer.hpp"
 
-bool Timer::is_done() {
+bool LoopTimer::is_done() {
     if (getElapsedTime() >= time) {
         this -> restart();
 

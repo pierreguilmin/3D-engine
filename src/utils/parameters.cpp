@@ -3,7 +3,7 @@
 int Parameters::window_width  = INITIAL_WINDOW_WIDTH;
 int Parameters::window_height = INITIAL_WINDOW_HEIGHT;
 std::vector<double> Parameters::cpu_usage;
-Timer Parameters::print_cpu_usage_timer(sf::seconds(1));
+LoopTimer Parameters::print_cpu_usage_timer(sf::seconds(1));
 
 void Parameters::print_mean_CPU_usage(std::ostream& os, const double current_loop_time, const double allowed_loop_time) {
 
