@@ -36,7 +36,7 @@ Camera3d::Camera3d(const Vector3d &_position,
 // ##############################################
 
 Camera3d Camera3d::operator+=(const Vector3d &v) {
-    position += v;
+    position += v * CAMERA_TRANSLATION_SENSIBILITY;
 
     return *this;
 }
