@@ -96,7 +96,7 @@ void Vector3d::rotate(const Vector3d &center, const Vector3d &axis, const double
 
 	Vector3d ax = axis.get_normalized();
 	double ux = ax.x, uy = ax.y, uz = ax.z;
-	double c = cos(as_radian(theta)), s = sin(as_radian(theta));
+	double c = cos(as_radians(theta)), s = sin(as_radians(theta));
 
 	temp.x = x * (c + square(ux) * (1 - c))   + y * (ux * uy * (1 - c) - uz * s) + z * (ux * uz * (1 - c) + uy * s);
 	temp.y = x * (uy * ux * (1 - c) + uz * s) + y * (c + square(uy) * (1 - c))   + z * (uy * uz * (1 - c) - ux * s);

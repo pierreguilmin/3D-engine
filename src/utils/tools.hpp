@@ -6,13 +6,11 @@
 
 double square(const double x);
 double map(const double x, const double a, const double b, const double c, const double d);
-double as_radian(const double theta);
-double as_degree(const double theta);
-
-std::vector<std::string> parse_string(const std::string &string_to_parse, const char sep);
-
+double as_radians(const double theta);
+double as_degrees(const double theta);
 int rand(const int a, const int b);
 double rand(const double a, const double b);
 sf::Color get_random_colour();
+std::vector<std::string> parse_string(const std::string &string_to_parse, const char sep);
 
 #endif

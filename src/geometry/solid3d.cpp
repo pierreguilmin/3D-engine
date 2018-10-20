@@ -46,9 +46,9 @@ Solid3d::Solid3d(const SOLID_TYPE type, const std::string &parameters_string) {
             for (unsigned j = 0; j < number_of_points_per_circle; ++j) {
                 double phi = map(j, 0, number_of_points_per_circle, -180, 180);
 
-                points.push_back(Vector3d(size * cos(as_radian(theta)) * cos(as_radian(phi)),
-                                          size * cos(as_radian(theta)) * sin(as_radian(phi)),
-                                          size * sin(as_radian(theta))));
+                points.push_back(Vector3d(size * cos(as_radians(theta)) * cos(as_radians(phi)),
+                                          size * cos(as_radians(theta)) * sin(as_radians(phi)),
+                                          size * sin(as_radians(theta))));
             }
         }
 

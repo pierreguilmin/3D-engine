@@ -1,6 +1,7 @@
 #ifndef CAMERA3D_HPP
 #define CAMERA3D_HPP
 
+#include "../utils/tools.hpp"
 #include "vector3d.hpp"
 #include "segment3d.hpp"
 #include "plane3d.hpp"
