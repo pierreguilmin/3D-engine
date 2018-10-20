@@ -32,6 +32,7 @@ public:
 
 	// others
 	double norm() const { return sqrt(x * x + y * y + z * z); }
+	void normalize() { *this = (*this) * (1 / this->norm()); }
 	Vector3d get_normalized() const;
 	double distance_to(const Vector3d &v) const;
 	void rotate(const Vector3d &center, const Vector3d &axis, const double theta);
