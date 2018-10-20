@@ -17,8 +17,8 @@ Cube3d::Cube3d(const Vector3d &_center, const double size) : Solid3d() {
     for (int i = 4; i < 8; ++i)
         points[i] = points [i - 4] + Vector3d(0, 0, size);
 
-    //for (int i = 0; i < 8; ++i)
-    //    points[i].color = get_random_colour();
+    for (int i = 0; i < 8; ++i)
+        points[i].set_color(get_random_colour());
 
     for (int i = 0; i < 4; ++i) {
         add_segment(Segment3d(points[i], points[(i + 1) % 4]));         // front face
