@@ -11,7 +11,7 @@
 | :tada:      | new feature                  |
 
 
-## General
+### General
 - [x] :eyes: `makefile` flags: remove `-std=c++11`
 - [x] :flashlight: handle dependencies
 - [ ] :clipboard: comment everything
@@ -19,64 +19,61 @@
 - [ ] :tada: setup matrix and vector multiplication and write every formula under a matrix form
 - [ ] :tada: write test for every class
 
-### `src/main.cpp`
-- [ ] :eyes: check all
+* `src/main.cpp`
+    - [ ] :eyes: check all
 
 
+### src/utils
 
-## src/utils
-
-### `Mouse`
-
-### `LoopTimer`
-- [ ] :warning: time not handled perfectly (see `this -> restart()` in `is_done()`)
-
-### `Parameters`
-- [x] :eyes: check all
-
-### `tools.*`
-- [x] :flashlight: change `general.*` for `tools.*`
-- [x] :eyes: check all
-- [x] :flashlight: check dependecies for class using `tools.hpp`
-- [x] :flashlight: remove `parse_string()`
-
-
-
-## src/geometry
-
-### `Vector3d`
-- [x] :eyes: check friend declarations
-
-### `Segment3d`
-- [x] :eyes: check friend declarations
-
-### `Plane3d`
-- [x] :eyes: check friend declarations
-- [x] :eyes: check every `// others` methods
-
-### `Solid3d`
-- [ ] :eyes: check every `// other` methods
-- [x] :tada: remove `SOLID_TYPE` enum and constructor and create custom cube, sphere and other solid classes
-
-### `Camera3d`
-- [x] :eyes: check every `// other` methods
-- [x] :eyes: check constructor
-
-### `geometry.*`
-- [x] :warning: pole point of the sphere repeated
-
-
-
-## :clipboard:
 * `Mouse`
-    - :clipboard: need to use `setPosition()` before using this class
+
 * `LoopTimer`
-    - :clipboard: `is_done()` relaunches the timer automatically
+    - [ ] :warning: time not handled perfectly (see `this -> restart()` in `is_done()`)
+
+* `Parameters`
+    - [x] :eyes: check all
+
+* `tools.*`
+    - [x] :flashlight: change `general.*` for `tools.*`
+    - [x] :eyes: check all
+    - [x] :flashlight: check dependecies for class using `tools.hpp`
+    - [x] :flashlight: remove `parse_string()`
+
+
+### src/geometry
+
 * `Vector3d`
-    - :clipboard: arithmetic operations don't change color
-    - :clipboard: `rotate()` theta in degrees
+    - [x] :eyes: check friend declarations
+
+* `Segment3d`
+    - [x] :eyes: check friend declarations
+
 * `Plane3d`
-    - :clipboard: `handle_intersection_of_segment_with_plane()` if `da = db = 0` return `false`
+    - [x] :eyes: check friend declarations
+    - [x] :eyes: check every `// others` methods
+
+* `Solid3d`
+    - [ ] :eyes: check every `// other` methods
+    - [x] :tada: remove `SOLID_TYPE` enum and constructor and create custom cube, sphere and other solid classes
+
+* `Camera3d`
+    - [x] :eyes: check every `// other` methods
+    - [x] :eyes: check constructor
+
+* `geometry.*`
+    - [x] :warning: pole point of the sphere repeated
+
+
+### :clipboard:
+* `Mouse`
+    - [ ] :clipboard: need to use `setPosition()` before using this class
+* `LoopTimer`
+    - [ ] :clipboard: `is_done()` relaunches the timer automatically
+* `Vector3d`
+    - [ ] :clipboard: arithmetic operations don't change color
+    - [ ] :clipboard: `rotate()` theta in degrees
+* `Plane3d`
+    - [ ] :clipboard: `handle_intersection_of_segment_with_plane()` if `da = db = 0` return `false`
 
 
 
