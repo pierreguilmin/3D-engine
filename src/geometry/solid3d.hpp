@@ -11,9 +11,11 @@ class Solid3d {
 public:
     enum class SOLID_TYPE {CUBE, SPHERE};
 
-public:
-    std::vector<Segment3d> edges;
+private:
     sf::VertexArray figure;
+
+protected:
+    std::vector<Segment3d> edges;
     Vector3d center;
 
 public:
