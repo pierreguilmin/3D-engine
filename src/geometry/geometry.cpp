@@ -52,7 +52,7 @@ Sphere3d::Sphere3d(const Vector3d &_center,
                                       size * sin(as_radians(theta))));
 
             // no need to repeat this point
-            if (theta == -90 || theta == 90)
+            if (theta <= -90 || theta >= 90)
                 break;
         }
     }
