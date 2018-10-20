@@ -32,13 +32,13 @@
 - [ ] :warning: time not handled perfectly (see `this -> restart()` in `is_done()`)
 
 ### `Parameters`
-- [ ] :eyes: check all
+- [x] :eyes: check all
 
 ### `tools.*`
 - [x] :flashlight: change `general.*` for `tools.*`
 - [x] :eyes: check all
 - [x] :flashlight: check dependecies for class using `tools.hpp`
-- [ ] :flashlight: remove `parse_string()`
+- [x] :flashlight: remove `parse_string()`
 
 
 
@@ -61,6 +61,9 @@
 ### `Camera3d`
 - [x] :eyes: check every `// other` methods
 - [x] :eyes: check constructor
+
+### `geometry.*`
+- [x] :warning: pole point of the sphere repeated
 
 
 
