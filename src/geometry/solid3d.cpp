@@ -75,4 +75,6 @@ void Solid3d::rotate(const Vector3d &rotation_center, const Vector3d &axis, cons
         s.a.rotate(center_of_rotation, axis, theta);
         s.b.rotate(center_of_rotation, axis, theta);
     }
+
+    center.rotate(center_of_rotation, axis, theta);
 }
