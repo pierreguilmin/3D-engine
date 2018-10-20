@@ -65,7 +65,7 @@ bool Plane3d::handle_intersection_of_segment_with_plane(Segment3d &s) const {
 sf::Vertex Plane3d::get_projection_on_plane(const Vector3d &v, const unsigned window_width, const unsigned window_height) const {
     sf::Color vertex_color = v.color;
 
-    vertex_color.a = map(signed_distance_from_point_to_plane(v), 0, PROJECTION_MAX_DEPTH, 255, 0); 
+    vertex_color.a = map(get_signed_distance_from_point_to_plane(v), 0, PROJECTION_MAX_DEPTH, 255, 0); 
 
     return sf::Vertex(sf::Vector2f(PROJECTION_FACTOR * v.x / v.z + window_width  / 2,
                                    PROJECTION_FACTOR * v.y / v.z + window_height / 2),
