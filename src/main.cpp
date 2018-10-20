@@ -1,6 +1,8 @@
 #include "utils/general.hpp"
 #include "utils/mouse.hpp"
 #include "geometry/geometry.hpp"
+#include "geometry/solid3d.hpp"
+
 
 #define FPS 60
 #define LOOP_TIME (1000.0 / FPS)
@@ -93,13 +95,13 @@ int main()
         // rendering
         window.clear();
 
-        colorful_plane.render_solid(window, camera);
+        colorful_plane.render_solid(window, Parameters::window_width, Parameters::window_height, camera);
 
-        cube.render_solid(window, camera);
-        smaller_cube.render_solid(window, camera);
+        cube.render_solid(window, Parameters::window_width, Parameters::window_height, camera);
+        smaller_cube.render_solid(window, Parameters::window_width, Parameters::window_height, camera);
 
         rotating_sphere.rotate(Vector3d(), Vector3d(1, 1, 0), 3, true);
-        rotating_sphere.render_solid(window, camera);
+        rotating_sphere.render_solid(window, Parameters::window_width, Parameters::window_height, camera);
 
         window.display();
 
