@@ -22,8 +22,8 @@ public:
     Plane3d& operator=(const Plane3d &p);
 
     // others
-    double get_equation_value_of_d() const;
-    double signed_distance_from_point_to_plane(const Vector3d &v) const;
+    double get_equation_coefficient_d() const;
+    double get_signed_distance_from_point_to_plane(const Vector3d &v) const;
     bool handle_intersection_of_segment_with_plane(Segment3d &s) const;
     sf::Vertex get_projection_on_plane(const Vector3d &v, const unsigned window_width, const unsigned window_height) const;
 };
