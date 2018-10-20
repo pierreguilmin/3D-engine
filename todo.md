@@ -31,9 +31,13 @@
 ### `LoopTimer`
 - [ ] :warning: time not handled perfectly (see `this -> restart()` in `is_done()`)
 
+### `Parameters`
+- [ ] :eyes: check all
+
 ### `tools.*`
 - [x] :flashlight: change `general.*` for `tools.*`
 - [ ] :eyes: check all
+- [ ] :flashlight: check dependecies for class using `tools.hpp`
 
 
 
