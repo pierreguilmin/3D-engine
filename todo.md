@@ -51,15 +51,15 @@
 
 ### `Plane3d`
 - [x] :eyes: check friend declarations
-- [ ] :eyes: check every `// others` methods
+- [x] :eyes: check every `// others` methods
 
 ### `Solid3d`
 - [ ] :eyes: check every `// other` methods
 - [ ] :tada: remove `SOLID_TYPE` enum and constructor and create custom cube, sphere and other solid classes
 
 ### `Camera3d`
-- [ ] :eyes: check every `// other` methods
-- [ ] :eyes: check constructor
+- [x] :eyes: check every `// other` methods
+- [x] :eyes: check constructor
 
 
 
@@ -71,6 +71,8 @@
 * `Vector3d`
     - :clipboard: arithmetic operations don't change color
     - :clipboard: `rotate()` theta in degrees
+* `Plane3d`
+    - :clipboard: `handle_intersection_of_segment_with_plane()` if `da = db = 0` return `false`
 
 
 
