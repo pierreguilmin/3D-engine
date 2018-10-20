@@ -7,9 +7,6 @@
 using std::cout;
 using std::endl;
 
-#define FPS 60
-#define LOOP_TIME (1000.0 / FPS)
-
 
 int main()
 {
@@ -104,9 +101,9 @@ int main()
         window.display();
 
         // other
-        Parameters::print_mean_CPU_usage(cout, loop_timer.getElapsedTime().asMilliseconds(), LOOP_TIME);
+        Parameters::print_mean_CPU_usage(cout, loop_timer.getElapsedTime().asMilliseconds());
 
-        sf::sleep(sf::milliseconds(LOOP_TIME - loop_timer.getElapsedTime().asMilliseconds()));
+        sf::sleep(sf::milliseconds(MAX_MAIN_LOOP_DURATION - loop_timer.getElapsedTime().asMilliseconds()));
         loop_timer.restart();
     }
 
