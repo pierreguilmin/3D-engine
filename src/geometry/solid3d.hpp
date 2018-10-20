@@ -1,8 +1,10 @@
 #ifndef SOLID_3D_HPP
 #define SOLID_3D_HPP
 
+#include "vector3d.hpp"
 #include "segment3d.hpp"
-#include "geometry.hpp"
+#include "plane3d.hpp"
+#include "camera3d.hpp"
 
 class Solid3d {
 public:

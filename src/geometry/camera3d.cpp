@@ -1,11 +1,11 @@
-#include "geometry.hpp"
+#include "camera3d.hpp"
 
 // ##############################################
-// ## Camera3d ##################################
+// ### constructors #############################
 // ##############################################
 
 // #TODO: explain frustrum creation
-Camera3d::Camera3d(const Vector3d _position,
+Camera3d::Camera3d(const Vector3d &_position,
 	               const double _theta_x,
 	               const double _theta_y,
 	               const double _theta_z) : position(_position),
@@ -28,6 +28,22 @@ Camera3d::Camera3d(const Vector3d _position,
 	frustrum[5] = Plane3d(Vector3d(0, 0, 0                   ), Vector3d(0  , -cv, sv)); // bottom
 }
 
+
+// ##############################################
+// ### operators ################################
+// ##############################################
+
+Camera3d Camera3d::operator+=(const Vector3d &v) {
+    position += v;
+
+    return *this;
+}
+
+
+// ##############################################
+// ### others ###################################
+// ##############################################
+
 void Camera3d::reload_frustrum() {
 	*this = Camera3d(position, as_degree(theta_x), as_degree(theta_y), as_degree(theta_z));
 }
@@ -48,17 +64,17 @@ void Camera3d::move(const DIRECTION direction) {
 	Vector3d up(0, 1, 0);
 
 	if (direction == DIRECTION::FRONT) 
-    	translate(normal);
-    else if (direction == DIRECTION::BEHIND)
-    	translate(- normal);
+    	*this += normal;
+    else if (direction == DIRECTION::BACK)
+    	*this += - normal;
     else if (direction == DIRECTION::RIGHT)
-    	translate(orthog);
+    	*this += orthog;
     else if (direction == DIRECTION::LEFT)
-    	translate(- orthog);
+    	*this += - orthog;
     else if (direction == DIRECTION::UP)
-    	translate(up);
+    	*this += up;
     else if (direction == DIRECTION::DOWN)
-    	translate(- up);
+    	*this += - up;
 }
 
 // #TODO: missing comment

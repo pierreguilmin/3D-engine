@@ -1,6 +1,6 @@
 #include "utils/general.hpp"
 #include "utils/mouse.hpp"
-#include "geometry/geometry.hpp"
+#include "geometry/camera3d.hpp"
 #include "geometry/solid3d.hpp"
 
 
@@ -82,7 +82,7 @@ int main()
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
             camera.move(Camera3d::DIRECTION::FRONT);
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-            camera.move(Camera3d::DIRECTION::BEHIND);
+            camera.move(Camera3d::DIRECTION::BACK);
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
             camera.move(Camera3d::DIRECTION::RIGHT);
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
