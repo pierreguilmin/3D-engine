@@ -37,4 +37,7 @@ clean:
 	rm -f $(EXEC)
 
 
-.PHONY: all clean
+cm: clean all 
+
+
+.PHONY: all print_compilation open clean cm
