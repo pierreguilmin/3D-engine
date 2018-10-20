@@ -50,6 +50,10 @@ Sphere3d::Sphere3d(const Vector3d &_center,
             points.push_back(Vector3d(size * cos(as_radians(theta)) * cos(as_radians(phi)),
                                       size * cos(as_radians(theta)) * sin(as_radians(phi)),
                                       size * sin(as_radians(theta))));
+
+            // no need to repeat this point
+            if (theta == -90 || theta == 90)
+                break;
         }
     }
 
