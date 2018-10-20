@@ -2,6 +2,7 @@
 #include "utils/parameters.hpp"
 #include "geometry/camera3d.hpp"
 #include "geometry/solid3d.hpp"
+#include "geometry/geometry.hpp"
 
 using std::cout;
 using std::endl;
@@ -38,18 +39,12 @@ int main()
     colorful_plane.add_segment(Segment3d(Vector3d(-120, 0, 120 , sf::Color::Green),
                                          Vector3d(-120, 0, -120, sf::Color::Cyan )));
 
-
     // create solid: cube inside cube
-    Solid3d cube(Solid3d::SOLID_TYPE::CUBE, "50");
-    cube.set_center(Vector3d(-60-50, -50, -50));
-    Solid3d smaller_cube(Solid3d::SOLID_TYPE::CUBE, "25");
-    smaller_cube.set_center(Vector3d(-60-25, -25, -25));
-
+    Cube3d cube_50(Vector3d(50, 0, 0), 50);
+    Cube3d cube_25(Vector3d(50, 0, 0), 25);
 
     // create solid: rotating sphere
-    Solid3d rotating_sphere(Solid3d::SOLID_TYPE::SPHERE, "40:20:50");
-    rotating_sphere.set_center(Vector3d(60, 0, 0));
-
+    Sphere3d sphere_40(Vector3d(-50, 0, 0), 40, 20, 50);
 
     // create camera
     Camera3d camera(Vector3d(0, -120, -230), -30, 0, 0, Parameters::window_width, Parameters::window_height);
@@ -99,11 +94,12 @@ int main()
 
         colorful_plane.render_solid(window, Parameters::window_width, Parameters::window_height, camera);
 
-        cube.render_solid(window, Parameters::window_width, Parameters::window_height, camera);
-        smaller_cube.render_solid(window, Parameters::window_width, Parameters::window_height, camera);
+        cube_25.rotate(Vector3d(), Vector3d(1, 1, 0), 3, true);
+        cube_50.render_solid(window, Parameters::window_width, Parameters::window_height, camera);
+        cube_25.render_solid(window, Parameters::window_width, Parameters::window_height, camera);
 
-        rotating_sphere.rotate(Vector3d(), Vector3d(1, 1, 0), 3, true);
-        rotating_sphere.render_solid(window, Parameters::window_width, Parameters::window_height, camera);
+        sphere_40.rotate(Vector3d(), Vector3d(0, 1, 0), 3, true);
+        sphere_40.render_solid(window, Parameters::window_width, Parameters::window_height, camera);
 
         window.display();
 

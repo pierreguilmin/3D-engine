@@ -56,7 +56,7 @@
 
 ### `Solid3d`
 - [ ] :eyes: check every `// other` methods
-- [ ] :tada: remove `SOLID_TYPE` enum and constructor and create custom cube, sphere and other solid classes
+- [x] :tada: remove `SOLID_TYPE` enum and constructor and create custom cube, sphere and other solid classes
 
 ### `Camera3d`
 - [x] :eyes: check every `// other` methods

@@ -19,7 +19,6 @@ public:
 public:
     // constructors
     Solid3d() { figure.setPrimitiveType(sf::Lines); }
-    Solid3d(const SOLID_TYPE type, const std::string &parameters_string);
 
     // operators
     Solid3d operator+=(const Solid3d &solid);
@@ -32,7 +31,6 @@ public:
     void render_solid(sf::RenderWindow &window, const unsigned window_width, const unsigned window_height, const Camera3d &camera);
     void clear() { edges.clear(); }
     void rotate(const Vector3d &rotation_center, const Vector3d &axis, const double theta, const bool object_axis = false);
-
 };
 
 #endif

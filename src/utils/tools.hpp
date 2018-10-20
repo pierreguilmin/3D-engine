@@ -11,6 +11,5 @@ double as_degrees(const double theta);
 int rand(const int a, const int b);
 double rand(const double a, const double b);
 sf::Color get_random_colour();
-std::vector<std::string> parse_string(const std::string &string_to_parse, const char sep);
 
 #endif

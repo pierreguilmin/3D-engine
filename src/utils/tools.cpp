@@ -39,26 +39,3 @@ double rand(const double a, const double b) {
 sf::Color get_random_colour() {
 	return sf::Color(rand(0, 256), rand(0, 256), rand(0, 256));
 }
-
-// split string by sep and returns a vector of string
-// ex: parse_string_to_int("12:40:3", ':') ⟹ std::vector<int> [12, 40, 3]
-std::vector<std::string> parse_string(const std::string &string_to_parse, const char sep)
-{
-	std::vector<std::string> sub_strings;
-	std::string temp;
-
-	for (auto c : string_to_parse)
-	{
-		if (c == sep)
-		{
-			sub_strings.push_back(temp);
-			temp = "";
-		}
-		else
-			temp += c;
-	}
-
-	sub_strings.push_back(temp);
-
-	return sub_strings;
-}
