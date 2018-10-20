@@ -37,7 +37,7 @@
 ### `tools.*`
 - [x] :flashlight: change `general.*` for `tools.*`
 - [x] :eyes: check all
-- [ ] :flashlight: check dependecies for class using `tools.hpp`
+- [x] :flashlight: check dependecies for class using `tools.hpp`
 - [ ] :flashlight: remove `parse_string()`
 
 
