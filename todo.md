@@ -14,7 +14,6 @@
 ### General
 - [x] :eyes: `makefile` flags: remove `-std=c++11`
 - [x] :flashlight: handle dependencies
-- [ ] :clipboard: comment everything
 - [ ] :tada: `README.md`: correct, improve and clarify
 - [ ] :tada: setup matrix and vector multiplication and write every formula under a matrix form
 - [ ] :tada: write test for every class
@@ -65,6 +64,8 @@
 
 
 ### :clipboard:
+- [ ] :clipboard: comment everything
+
 * `Mouse`
     - [ ] :clipboard: need to use `setPosition()` before using this class
 * `LoopTimer`
