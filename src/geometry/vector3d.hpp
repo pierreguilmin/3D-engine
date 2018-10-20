@@ -31,6 +31,7 @@ public:
 	double operator*(const Vector3d &v) const;
 
 	// others
+	void set_color(const sf::Color &_color) { color = _color; }
 	double norm() const { return sqrt(x * x + y * y + z * z); }
 	void normalize() { *this = (*this) * (1 / this->norm()); }
 	Vector3d get_normalized() const;
