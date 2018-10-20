@@ -63,10 +63,10 @@ void Camera3d::rotate(const double mouse_move_x, const double mouse_move_y) {
 // #TODO: missing comment
 void Camera3d::move(const DIRECTION direction) {
 	Vector3d normal(cos(theta_x) * sin(theta_y), - sin(theta_x), cos(theta_x) * cos(theta_y));
-	normal = normal.get_normalized();
+	normal.normalize();
 
 	Vector3d orthog(normal.z, 0, - normal.x);
-	orthog = orthog.get_normalized();
+	orthog.normalize();
 
 	Vector3d up(0, 1, 0);
 
@@ -85,9 +85,7 @@ void Camera3d::move(const DIRECTION direction) {
 }
 
 // #TODO: missing comment
-Vector3d Camera3d::transform_point(const Vector3d &v) const {
-	Vector3d new_v(v);
-
+Vector3d Camera3d::transform_vector(const Vector3d &v) const {
 	double cx = cos(theta_x), cy = cos(theta_y), cz = cos(theta_z);
 	double sx = sin(theta_x), sy = sin(theta_y), sz = sin(theta_z);
 	Vector3d u = v - position; // camera as the center of the world in (0, 0, 0)
@@ -101,7 +99,5 @@ Vector3d Camera3d::transform_point(const Vector3d &v) const {
 }
 
 Segment3d Camera3d::transform_segment(const Segment3d &s) const {
- 	return Segment3d(transform_point(s.a), transform_point(s.b));
+ 	return Segment3d(transform_vector(s.a), transform_vector(s.b));
 }
-
-
