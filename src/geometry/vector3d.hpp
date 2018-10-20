@@ -28,7 +28,7 @@ public:
 	Vector3d operator*=(const double factor);
 	double operator*(const Vector3d &v) const;
 
-	// other
+	// others
 	double norm() const { return sqrt(x * x + y * y + z * z); }
 	Vector3d get_normalized() const;
 	double distance_to(const Vector3d &v) const;

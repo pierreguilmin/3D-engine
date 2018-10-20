@@ -16,6 +16,7 @@ public:
 
     // operators
     Segment3d& operator=(const Segment3d &s);
+    Segment3d operator+=(const Vector3d &v);
 
 
 friend class Plane3d;

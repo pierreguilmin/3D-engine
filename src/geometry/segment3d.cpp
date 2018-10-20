@@ -12,3 +12,10 @@ Segment3d& Segment3d::operator=(const Segment3d &s) {
 
     return *this;
 }
+
+Segment3d Segment3d::operator+=(const Vector3d &v) {
+    a += v;
+    b += v;
+
+    return *this;
+}
