@@ -18,45 +18,55 @@
 - [ ] :tada: `README.md`: correct, improve and clarify
 - [ ] :tada: setup matrix and vector multiplication and write every formula under a matrix form
 - [ ] :tada: write test for every class
-- [ ] :flashlight: change `general.*` for `tools.*`
 
-
-
-## utils
-
-### `Mouse`
-- [ ] :clipboard: need to use `setPosition()` before using this class
-
-### `LoopTimer`
-- [ ] :warning: time not handled perfectly (see `this -> restart()` in `is_done()`)
-- [ ] :clipboard: `is_done()` relaunches the timer automatically
-
-### `tools.*`
+### `src/main.cpp`
 - [ ] :eyes: check all
 
 
 
-## geometry
+## src/utils
+
+### `Mouse`
+
+### `LoopTimer`
+- [ ] :warning: time not handled perfectly (see `this -> restart()` in `is_done()`)
+
+### `tools.*`
+- [x] :flashlight: change `general.*` for `tools.*`
+- [ ] :eyes: check all
+
+
+
+## src/geometry
 
 ### `Vector3d`
-- [ ] :eyes: check friend declarations
-- [ ] :clipboard: arithmetic operations don't change color
-- [ ] :clipboard: `rotate()`theta in degrees
+- [x] :eyes: check friend declarations
 
 ### `Segment3d`
-- [ ] :eyes: check friend declarations
+- [x] :eyes: check friend declarations
 
 ### `Plane3d`
-- [ ] :eyes: check friend declarations
-- [ ] :eyes: check every `// other` methods
-- [ ] :flashlight: clarify `handle_intersection_of_segment_with_plane()`
-- [ ] :flashlight: clarify `get_projection_on_plane()`
+- [x] :eyes: check friend declarations
+- [ ] :eyes: check every `// others` methods
 
 ### `Solid3d`
 - [ ] :eyes: check every `// other` methods
 - [ ] :tada: remove `SOLID_TYPE` enum and constructor and create custom cube, sphere and other solid classes
-- [ ] :flashlight: remove `set_center()`, automatize it
 
 ### `Camera3d`
 - [ ] :eyes: check every `// other` methods
 - [ ] :eyes: check constructor
+
+
+
+## :clipboard:
+* `Mouse`
+    - :clipboard: need to use `setPosition()` before using this class
+* `LoopTimer`
+    - :clipboard: `is_done()` relaunches the timer automatically
+* `Vector3d`
+    - :clipboard: arithmetic operations don't change color
+    - :clipboard: `rotate()` theta in degrees
+
+
+
