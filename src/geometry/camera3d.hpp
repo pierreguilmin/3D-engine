@@ -23,13 +23,15 @@ public:
 	Camera3d(const Vector3d &_position,
 		     const double _theta_x,
 		     const double _theta_y,
-		     const double _theta_z);
+		     const double _theta_z,
+		     const unsigned window_width,
+		     const unsigned window_height);
 
 	// operators
 	Camera3d operator+=(const Vector3d &v);
 
 	// others
-	void reload_frustrum();
+	void reload_frustrum(const unsigned window_width, const unsigned window_height);
 	void rotate(const double mouse_move_x, const double mouse_move_y);
 	void move(const DIRECTION direction);
 	Vector3d transform_point(const Vector3d &v) const;

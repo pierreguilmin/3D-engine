@@ -1,4 +1,4 @@
-#include "general.hpp"
+#include "tools.hpp"
 
 // return the square number of x
 double square(const double x) {
@@ -27,10 +27,10 @@ double as_degree(const double theta) {
 
 // split string by sep and returns a vector of string
 // ex: parse_string_to_int("12:40:3", ':') ⟹ std::vector<int> [12, 40, 3]
-vector<string> parse_string(const string &string_to_parse, const char sep)
+std::vector<std::string> parse_string(const std::string &string_to_parse, const char sep)
 {
-	vector<string> sub_strings;
-	string temp;
+	std::vector<std::string> sub_strings;
+	std::string temp;
 
 	for (auto c : string_to_parse)
 	{

@@ -1,8 +1,10 @@
-#include "utils/general.hpp"
 #include "utils/mouse.hpp"
+#include "utils/parameters.hpp"
 #include "geometry/camera3d.hpp"
 #include "geometry/solid3d.hpp"
 
+using std::cout;
+using std::endl;
 
 #define FPS 60
 #define LOOP_TIME (1000.0 / FPS)
@@ -50,7 +52,7 @@ int main()
 
 
     // create camera
-    Camera3d camera(Vector3d(0, -120, -230), -30, 0, 0);
+    Camera3d camera(Vector3d(0, -120, -230), -30, 0, 0, Parameters::window_width, Parameters::window_height);
 
 
     loop_timer.restart();
@@ -70,8 +72,8 @@ int main()
                 cout << "Window resized: "
                      << event.size.width
                      << " x "
-                     << event.size.height << std::endl;
-                camera.reload_frustrum();
+                     << event.size.height << endl;
+                camera.reload_frustrum(Parameters::window_width, Parameters::window_height);
             }
         }
 

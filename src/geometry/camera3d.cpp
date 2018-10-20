@@ -8,13 +8,15 @@
 Camera3d::Camera3d(const Vector3d &_position,
 	               const double _theta_x,
 	               const double _theta_y,
-	               const double _theta_z) : position(_position),
+	               const double _theta_z,
+                   const unsigned window_width,
+                   const unsigned window_height) : position(_position),
 							    			theta_x(as_radian(_theta_x)),
 							    			theta_y(as_radian(_theta_y)),
 							    			theta_z(as_radian(_theta_z)) {
 
-	const double horizontal_angle = atan2(Parameters::window_width  / 2.0, PROJECTION_FACTOR) - 0.0001;
-	const double vertical_angle   = atan2(Parameters::window_height / 2.0, PROJECTION_FACTOR) - 0.0001;
+	const double horizontal_angle = atan2(window_width  / 2.0, PROJECTION_FACTOR) - 0.0001;
+	const double vertical_angle   = atan2(window_height / 2.0, PROJECTION_FACTOR) - 0.0001;
 	const double ch = cos(horizontal_angle);
 	const double sh = sin(horizontal_angle);
 	const double cv = cos(vertical_angle);
@@ -44,8 +46,13 @@ Camera3d Camera3d::operator+=(const Vector3d &v) {
 // ### others ###################################
 // ##############################################
 
-void Camera3d::reload_frustrum() {
-	*this = Camera3d(position, as_degree(theta_x), as_degree(theta_y), as_degree(theta_z));
+void Camera3d::reload_frustrum(const unsigned window_width, const unsigned window_height) {
+	*this = Camera3d(position,
+                     as_degree(theta_x),
+                     as_degree(theta_y),
+                     as_degree(theta_z),
+                     window_width,
+                     window_height);
 }
 
 void Camera3d::rotate(const double mouse_move_x, const double mouse_move_y) {

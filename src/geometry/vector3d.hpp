@@ -1,7 +1,9 @@
 #ifndef VECTOR3D_HPP
 #define VECTOR3D_HPP
 
-#include "../utils/general.hpp"
+#include "../utils/tools.hpp"
+#include <SFML/Graphics.hpp>
+#include <iostream>
 #include <iomanip> // for std::setprecision and std::setw
 
 class Vector3d {

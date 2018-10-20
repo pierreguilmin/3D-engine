@@ -5,10 +5,10 @@
 // ##############################################
 
 // #TODO: missing comment
-Solid3d::Solid3d(const SOLID_TYPE type, const string &parameters_string) {
+Solid3d::Solid3d(const SOLID_TYPE type, const std::string &parameters_string) {
     figure.setPrimitiveType(sf::Lines);
 
-    vector<string> parameters = parse_string(parameters_string, ':');
+    std::vector<std::string> parameters = parse_string(parameters_string, ':');
 
     double size = std::stoi(parameters[0]);
 

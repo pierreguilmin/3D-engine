@@ -1,6 +1,7 @@
 #ifndef SOLID_3D_HPP
 #define SOLID_3D_HPP
 
+#include <SFML/Graphics.hpp>
 #include "vector3d.hpp"
 #include "segment3d.hpp"
 #include "plane3d.hpp"
@@ -18,7 +19,7 @@ public:
 public:
     // constructors
     Solid3d() { figure.setPrimitiveType(sf::Lines); }
-    Solid3d(const SOLID_TYPE type, const string &parameters_string);
+    Solid3d(const SOLID_TYPE type, const std::string &parameters_string);
 
     // operators
     Solid3d operator+=(const Solid3d &solid);

@@ -1,6 +1,7 @@
 #ifndef SEGMENT_3D_HPP
 #define SEGMENT_3D_HPP
 
+#include <SFML/Graphics.hpp>
 #include "vector3d.hpp"
 
 class Segment3d {
