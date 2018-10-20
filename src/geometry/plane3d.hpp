@@ -1,9 +1,10 @@
 #ifndef PLANE_3D_HPP
 #define PLANE_3D_HPP
 
+#include "vector3d.hpp"
 #include "segment3d.hpp"
 
-#define PROJECTION_FACTOR 1024.0
+#define PROJECTION_FACTOR    1024.0
 #define PROJECTION_MAX_DEPTH 800
 
 class Plane3d {
