@@ -189,14 +189,14 @@ void Solid3d::render_solid(sf::RenderWindow &window, const Camera3d &camera) {
 		s = camera.transform_segment(s);
 
 		for (auto side : camera.frustrum) {
-			outside_frustrum = side.handle_intersection_segment_with_plane(s);
+			outside_frustrum = side.handle_intersection_of_segment_with_plane(s);
 			if (outside_frustrum)
 				break;
 		}
 
 		if (! outside_frustrum) {
-			figure.append(camera.frustrum[0].get_point_projection_on_plane(s.a));
-			figure.append(camera.frustrum[0].get_point_projection_on_plane(s.b));
+			figure.append(camera.frustrum[0].get_projection_on_plane(s.a, Parameters::window_width, Parameters::window_height));
+			figure.append(camera.frustrum[0].get_projection_on_plane(s.b, Parameters::window_width, Parameters::window_height));
 		}
 	}
 

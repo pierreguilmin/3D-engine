@@ -23,8 +23,8 @@ public:
     // other
     double get_equation_value_of_d() const;
     double signed_distance_from_point_to_plane(const Vector3d &v) const;
-    bool handle_intersection_segment_with_plane(Segment3d &s) const;
-    sf::Vertex get_point_projection_on_plane(Vector3d &v) const;
+    bool handle_intersection_of_segment_with_plane(Segment3d &s) const;
+    sf::Vertex get_projection_on_plane(const Vector3d &v, const unsigned window_width, const unsigned window_height) const;
 };
 
 #endif

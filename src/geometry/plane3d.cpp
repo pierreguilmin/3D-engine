@@ -1,7 +1,7 @@
 #include "plane3d.hpp"
 
 // ##############################################
-// ## operators  ################################
+// ## operators #################################
 // ##############################################
 
 Plane3d& Plane3d::operator=(const Plane3d &p) {
@@ -15,7 +15,7 @@ Plane3d& Plane3d::operator=(const Plane3d &p) {
 
 
 // ##############################################
-// ## other  ####################################
+// ## other #####################################
 // ##############################################
 
 // p(x, y, z) in plane [n(a, b, c), b] ⟺ n . (p - b)        = 0
@@ -38,9 +38,9 @@ double Plane3d::signed_distance_from_point_to_plane(const Vector3d &v) const {
 }
 
 // #TODO: missing comment
-bool Plane3d::handle_intersection_segment_with_plane(Segment3d &s) const {
-    double da = signed_distance_from_point_to_plane(s.a);
-    double db = signed_distance_from_point_to_plane(s.b);
+bool Plane3d::handle_intersection_of_segment_with_plane(Segment3d &s) const {
+    const double da = signed_distance_from_point_to_plane(s.a);
+    const double db = signed_distance_from_point_to_plane(s.b);
 
     if (da < 0 && db < 0)
         return true;
@@ -55,19 +55,19 @@ bool Plane3d::handle_intersection_segment_with_plane(Segment3d &s) const {
     }
     else if (da < 0 & db > 0) {
         std::swap(s.a, s.b);
-        handle_intersection_segment_with_plane(s);
+        handle_intersection_of_segment_with_plane(s);
     }
 
     return false;
 }
 
 // #TODO: explain change point opacity
-sf::Vertex Plane3d::get_point_projection_on_plane(Vector3d &v) const {
+sf::Vertex Plane3d::get_projection_on_plane(const Vector3d &v, const unsigned window_width, const unsigned window_height) const {
     sf::Color vertex_color = v.color;
 
     vertex_color.a = map(signed_distance_from_point_to_plane(v), 0, PROJECTION_MAX_DEPTH, 255, 0); 
 
-    return sf::Vertex(sf::Vector2f(PROJECTION_FACTOR * v.x / v.z + Parameters::window_width  / 2,
-                                   PROJECTION_FACTOR * v.y / v.z + Parameters::window_height / 2),
+    return sf::Vertex(sf::Vector2f(PROJECTION_FACTOR * v.x / v.z + window_width  / 2,
+                                   PROJECTION_FACTOR * v.y / v.z + window_height / 2),
                       vertex_color);
 }
