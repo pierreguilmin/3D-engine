@@ -63,20 +63,12 @@ Ellipsoid3d::Ellipsoid3d(const Vector3d &_center,
 void Ellipsoid3d::_add_segments(const bool add_latitude_segments, const bool add_longitude_segments) {
     for (unsigned i = 0; i < nb_circles; ++i) {
         for (unsigned j = 0; j < nb_points_per_circle; ++j) {
-            size_t current_point_idx = i * nb_points_per_circle + j;
 
-            if (add_latitude_segments) {
-                if (j > 0)
-                    add_segment(Segment3d(points[current_point_idx],
-                                          points[current_point_idx - 1]));
-                else
-                    add_segment(Segment3d(points[current_point_idx],
-                                          points[current_point_idx + nb_points_per_circle - 1]));
-            }
+            if (add_latitude_segments)
+                add_segment(Segment3d(_point_at(i, j),  _point_at(i, j - 1)));
 
             if (add_longitude_segments && i > 0)
-                add_segment(Segment3d(points[current_point_idx],
-                                      points[current_point_idx - nb_points_per_circle]));
+                add_segment(Segment3d(_point_at(i, j), _point_at(i - 1, j)));
         }
     }
 }
@@ -116,6 +108,7 @@ Asteroid3d::Asteroid3d(const Vector3d &_center, const double size) : Ellipsoid3d
                                                                     l, -sub_radius, sub_radius,
                                                                     amplitude);
                         _point_at(i + l, j + k)  *= factor;
+                        _point_at(i + l, j + k).set_color(sf::Color::Red);
                     }
                 }
             }
