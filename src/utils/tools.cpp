@@ -5,14 +5,43 @@ double square(const double x) {
 	return x * x;
 }
 
-// map linearly x from [a, b] to [c, d], if x < a ⟹ c, if x > b ⟹ d
-double map(double x, const double a, const double b, const double c, const double d) {
-	if (x < a)
-		x = a;
-	else if (x > b)
-		x = b;
+// return the math modulo of x (and not the C++ modulo, wrong for negative numbers)
+// -2 % 10 ⟹ -2 instead of 8
+int mod(const int a, const int b) {
+	if (a >=0)
+		return a % b;
+	else
+		return a % b + b;
+ }
 
-	return (x - a) / (b - a) * (d - c) + c;
+// if x < a ⟹ c, if x > b ⟹ d
+double constrain(const double x, const double a, const double b) {
+ 	if (x < a)
+		return a;
+	else if (x > b)
+		return b;
+	
+	return x;
+ }
+
+// map linearly x from [a, b] to [c, d], if x < a ⟹ c, if x > b ⟹ d
+double map(const double x, const double a, const double b, const double c, const double d) {
+	const double x_c = constrain(x, a, b);
+
+	return (x_c - a) / (b - a) * (d - c) + c;
+}
+
+// https://en.wikipedia.org/wiki/Gaussian_function#Two-dimensional_Gaussian_function
+double map_gaussian_2d(const double x, const double x_a, const double x_b,
+                       const double y, const double y_a, const double y_b,
+                       const double amplitude) {
+	const double mu_x = 0.0, mu_y = 0.0, sigma_x = 1.0, sigma_y = 1.0;
+
+	const double x_mapped = map(x, x_a, x_b, - 3 * sigma_x, 3 * sigma_x);
+	const double y_mapped = map(y, y_a, y_b, - 3 * sigma_y, 3 * sigma_y);
+
+	return amplitude * exp(- (square(x_mapped - mu_x) / 2 * square(sigma_x) +
+	                          square(y_mapped - mu_y) / 2 * square(sigma_y)));
 }
 
 // convert theta in degrees to radian
