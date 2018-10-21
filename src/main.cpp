@@ -25,19 +25,8 @@ int main()
     Mouse::setPosition(sf::Vector2i(INITIAL_WINDOW_WIDTH / 2, INITIAL_WINDOW_HEIGHT / 2), window);
 
 
-    // create solid: colorful plane
-    Solid3d colorful_plane;
-    colorful_plane.add_segment(Segment3d(Vector3d(-150, 0, -150, sf::Color::Cyan ),
-                                         Vector3d(150 , 0, -150, sf::Color::Blue )));
-    colorful_plane.add_segment(Segment3d(Vector3d(150 , 0, -150, sf::Color::Blue ),
-                                         Vector3d(150 , 0, 150 , sf::Color::Red  )));
-    colorful_plane.add_segment(Segment3d(Vector3d(150 , 0, 150 , sf::Color::Red  ),
-                                         Vector3d(-150, 0, 150 , sf::Color::Green)));
-    colorful_plane.add_segment(Segment3d(Vector3d(-150, 0, 150 , sf::Color::Green),
-                                         Vector3d(-150, 0, -150, sf::Color::Cyan )));
-
     // create asteroid
-    Asteroid3d ast(Vector3d(0, 0, 0), 50);
+    Asteroid3d ast(Vector3d(0, 0, 0), 30);
 
     // create camera
     Camera3d camera(Vector3d(0, -120, -230), -30, 0, 0, Parameters::window_width, Parameters::window_height);
@@ -85,7 +74,6 @@ int main()
         // rendering
         window.clear();
 
-        colorful_plane.render_solid(window, Parameters::window_width, Parameters::window_height, camera);
 
         //ast.rotate(Vector3d(), Vector3d(0, 1, 1), 3, true);
         ast.render_solid(window, Parameters::window_width, Parameters::window_height, camera);
