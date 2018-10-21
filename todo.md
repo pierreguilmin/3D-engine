@@ -61,6 +61,7 @@
 
 * `geometry.*`
     - [x] :warning: pole point of the sphere repeated
+    - [ ] :tada: add multiple kernels for asteroids creation (gaussian, cos, abs, ...)
 
 
 ### :clipboard:
