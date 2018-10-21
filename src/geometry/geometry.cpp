@@ -31,17 +31,17 @@ Cube3d::Cube3d(const Vector3d &_center, const double size) : Solid3d() {
 
 
 // ##############################################
-// ### Sphere3d #################################
+// ### Ellipsoid3d ##############################
 // ##############################################
 
-Sphere3d::Sphere3d(const Vector3d &_center, 
-                   const double size,
-                   const unsigned _nb_circles,
-                   const unsigned _nb_points_per_circle,
-                   const bool add_latitude_segments,
-                   const bool add_longitude_segments) : Solid3d(),
-                                                        nb_circles(_nb_circles),
-                                                        nb_points_per_circle(_nb_points_per_circle) {
+Ellipsoid3d::Ellipsoid3d(const Vector3d &_center, 
+                         const double a, const double b, const double c,
+                         const unsigned _nb_circles,
+                         const unsigned _nb_points_per_circle,
+                         const bool add_latitude_segments,
+                         const bool add_longitude_segments) : Solid3d(),
+                                                              nb_circles(_nb_circles),
+                                                              nb_points_per_circle(_nb_points_per_circle) {
 
     for (unsigned i = 0; i < nb_circles; ++i) {
         double theta = map(i, 0, nb_circles - 1, -88, 88);
@@ -49,9 +49,9 @@ Sphere3d::Sphere3d(const Vector3d &_center,
         for (unsigned j = 0; j < nb_points_per_circle; ++j) {
             double phi = map(j, 0, nb_points_per_circle, -180, 180);
 
-            points.push_back(Vector3d(size * cos(as_radians(theta)) * cos(as_radians(phi)),
-                                      size * cos(as_radians(theta)) * sin(as_radians(phi)),
-                                      size * sin(as_radians(theta))));
+            points.push_back(Vector3d(a * cos(as_radians(theta)) * cos(as_radians(phi)),
+                                      b * cos(as_radians(theta)) * sin(as_radians(phi)),
+                                      c * sin(as_radians(theta))));
         }
     }
 
@@ -60,7 +60,7 @@ Sphere3d::Sphere3d(const Vector3d &_center,
     *this += _center;
 }
 
-void Sphere3d::_add_segments(const bool add_latitude_segments, const bool add_longitude_segments) {
+void Ellipsoid3d::_add_segments(const bool add_latitude_segments, const bool add_longitude_segments) {
     for (unsigned i = 0; i < nb_circles; ++i) {
         for (unsigned j = 0; j < nb_points_per_circle; ++j) {
             size_t current_point_idx = i * nb_points_per_circle + j;
@@ -81,58 +81,43 @@ void Sphere3d::_add_segments(const bool add_latitude_segments, const bool add_lo
     }
 }
 
+Vector3d& Ellipsoid3d::_point_at(const size_t circle_idx, const size_t point_idx) {
+    return points[mod(circle_idx, nb_circles) * nb_points_per_circle + mod(point_idx, nb_points_per_circle)];
+}
 
 // ##############################################
 // ### Asteroid3d ###############################
 // ##############################################
 
-Asteroid3d::Asteroid3d(const Vector3d &_center, const double size) : Sphere3d(_center,
-                                                                              size,
-                                                                              30,
-                                                                              50,
-                                                                              false,
-                                                                              false) {
+Asteroid3d::Asteroid3d(const Vector3d &_center, const double size) : Ellipsoid3d(_center,
+                                                                                 size, size, size * 2,
+                                                                                 50,
+                                                                                 100,
+                                                                                 false,
+                                                                                 false) {
 
     *this += -Vector3d(_center);
 
     bool make_asteroid = true;
 
     for (unsigned i = 0; i < nb_circles; ++i) {
-
         for (unsigned j = 0; j < nb_points_per_circle; ++j) {
-            size_t current_point_idx = i * nb_points_per_circle + j;
 
-            double deformation_factor = map(i, 0, nb_circles -1, -size, size);
-            points[current_point_idx] += Vector3d(0, 0, deformation_factor);
-            points[current_point_idx].set_color(sf::Color(rand(170, 220),
-                                                          rand(100, 150),
-                                                          rand(30, 80)));
+            if (make_asteroid && j == 5 && i == 20) {
 
-            if (make_asteroid &&
-                i >= 2 && i < nb_circles - 2 &&
-                j >= 2 && j < nb_points_per_circle - 2 &&
-                rand(0, 10) == 0) {
+                _point_at(i, j).set_color(sf::Color::Red);
 
-                const double factor = rand(1.0, 1.3);
-                const size_t radius = rand(10, 20);
+                const double amplitude = 1.0;
+                const int radius = 15, sub_radius = 7;
 
-                for (size_t k = 1; k < radius; ++k) {
-                    const double sub_factor = map(k, 0, radius - 1, factor, 1);
-
-                    points[current_point_idx - k] *= sub_factor;
-                    points[current_point_idx + k] *= sub_factor;
-
-                    for (size_t l = 1; l < static_cast<size_t>(radius / 2); ++l) {
-                        const double sub_sub_factor = map(l, 0, static_cast<size_t>(radius / 2), sub_factor, 1);
-
-                        points[current_point_idx - k + nb_points_per_circle * l] *= sub_sub_factor;
-                        points[current_point_idx + k + nb_points_per_circle * l] *= sub_sub_factor;
+                for (int k = - radius; k <= radius; ++k) {
+                    for (int l = - sub_radius; l <= sub_radius; ++l) {
+                        const double factor = 1.0 + map_gaussian_2d(k, -radius, radius,
+                                                                    l, -sub_radius, sub_radius,
+                                                                    amplitude);
+                        _point_at(i + l, j + k)  *= factor;
                     }
                 }
-
-                points[current_point_idx - nb_points_per_circle] *= (1 + factor) / 2;
-                points[current_point_idx + nb_points_per_circle] *= (1 + factor) / 2;
-                points[current_point_idx] *= factor;
             }
         }
     }
