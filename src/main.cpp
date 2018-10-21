@@ -35,6 +35,9 @@ int main()
     // create solid: rotating sphere
     Sphere3d sphere(Vector3d(-90, 0, 0), 40, 30, 50);
 
+    // create ellipsoid: rotating ellipsoid
+    Ellipsoid3d ell(Vector3d(-90, -100, 0), 30, 50, 80, 30, 50, true, false);
+
     // create camera
     Camera3d camera(Vector3d(0, -120, -230), -30, 0, 0, Parameters::window_width, Parameters::window_height);
 
@@ -90,7 +93,10 @@ int main()
         sphere.rotate(Vector3d(0, 1, 1), 0.2);
         sphere.render_solid(window, Parameters::window_width, Parameters::window_height, camera);
 
-        ast.rotate(Vector3d(0, 1, 1), 0.2);
+        ell.rotate(Vector3d(0, 1, 0), 0.2);
+        ell.render_solid(window, Parameters::window_width, Parameters::window_height, camera);
+
+        //ast.rotate(Vector3d(0, 1, 1), 0.2);
         ast.render_solid(window, Parameters::window_width, Parameters::window_height, camera);
 
         window.display();
