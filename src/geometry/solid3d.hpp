@@ -28,7 +28,6 @@ public:
     Solid3d operator+=(const Vector3d &v);
 
     // others
-    void set_center(const Vector3d &_center);
     void add_segment(const Segment3d &s) { edges.push_back(s); }
     void render_solid(sf::RenderWindow &window, const unsigned window_width, const unsigned window_height, const Camera3d &camera);
     void clear() { edges.clear(); }

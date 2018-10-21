@@ -36,11 +36,6 @@ Solid3d Solid3d::operator+=(const Vector3d &v) {
 // ### others ###################################
 // ##############################################
 
-void Solid3d::set_center(const Vector3d &_center) {
-    *this += _center;
-    center = _center;
-}
-
 // #TODO: missing comment
 void Solid3d::render_solid(sf::RenderWindow &window, const unsigned window_width, const unsigned window_height, const Camera3d &camera) {
     figure.clear();
