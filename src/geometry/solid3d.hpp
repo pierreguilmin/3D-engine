@@ -32,7 +32,8 @@ public:
     void add_segment(const Segment3d &s) { edges.push_back(s); }
     void render_solid(sf::RenderWindow &window, const unsigned window_width, const unsigned window_height, const Camera3d &camera);
     void clear() { edges.clear(); }
-    void rotate(const Vector3d &rotation_center, const Vector3d &axis, const double theta, const bool object_axis = false);
+    void rotate_around_vector(const Vector3d rotation_center, const Vector3d &axis, const double theta);
+    void rotate(const Vector3d &axis, const double theta);
 };
 
 #endif

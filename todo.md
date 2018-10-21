@@ -75,6 +75,7 @@
     - [ ] :clipboard: `rotate()` theta in degrees
 * `Plane3d`
     - [ ] :clipboard: `handle_intersection_of_segment_with_plane()` if `da = db = 0` return `false`
-
+* `Solid3d`
+    - [ ] :clipboard: in `rotate_around_vector()` don't pass `rotation_center` by reference: explain why
 
 

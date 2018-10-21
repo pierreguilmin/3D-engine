@@ -64,17 +64,16 @@ void Solid3d::render_solid(sf::RenderWindow &window, const unsigned window_width
     window.draw(figure);
 }
 
-void Solid3d::rotate(const Vector3d &rotation_center, const Vector3d &axis, const double theta, const bool object_axis) {
+void Solid3d::rotate_around_vector(const Vector3d rotation_center, const Vector3d &axis, const double theta) {
     
-    Vector3d center_of_rotation(rotation_center);
-
-    if (object_axis)
-        center_of_rotation = center;
-
     for (auto &s : edges) {
-        s.a.rotate(center_of_rotation, axis, theta);
-        s.b.rotate(center_of_rotation, axis, theta);
+        s.a.rotate(rotation_center, axis, theta);
+        s.b.rotate(rotation_center, axis, theta);
     }
 
-    center.rotate(center_of_rotation, axis, theta);
+    center.rotate(rotation_center, axis, theta);
+}
+
+void Solid3d::rotate(const Vector3d &axis, const double theta) {
+    rotate_around_vector(center, axis, theta);
 }
