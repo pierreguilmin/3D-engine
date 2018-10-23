@@ -27,6 +27,7 @@ int main()
 
     // create asteroid
     Asteroid3d ast(Vector3d(90, 0, 0), 30);
+    LoopTimer change_asteroid_timer(sf::seconds(1));
 
     // create solid: cube inside cube
     Cube3d big_cube(Vector3d(100, 50, 0), 50);
@@ -44,6 +45,7 @@ int main()
 
     loop_timer.restart();
     current_time.restart();
+    
 
     while (window.isOpen())
     {
@@ -87,16 +89,18 @@ int main()
         small_cube.rotate_around_vector(Vector3d(0, 0, 0), Vector3d(0, 1, 0), 1);
         big_cube.rotate_around_vector(Vector3d(0, 0, 0), Vector3d(0, 1, 0), 1);
         small_cube.rotate(Vector3d(1, 1, 0), 2);
-        big_cube.render_solid(window, Parameters::window_width, Parameters::window_height, camera);
-        small_cube.render_solid(window, Parameters::window_width, Parameters::window_height, camera);
+        //big_cube.render_solid(window, Parameters::window_width, Parameters::window_height, camera);
+        //small_cube.render_solid(window, Parameters::window_width, Parameters::window_height, camera);
 
         sphere.rotate(Vector3d(0, 1, 1), 0.2);
-        sphere.render_solid(window, Parameters::window_width, Parameters::window_height, camera);
+        //sphere.render_solid(window, Parameters::window_width, Parameters::window_height, camera);
 
         ell.rotate(Vector3d(0, 1, 0), 0.2);
-        ell.render_solid(window, Parameters::window_width, Parameters::window_height, camera);
+        //ell.render_solid(window, Parameters::window_width, Parameters::window_height, camera);
 
         //ast.rotate(Vector3d(0, 1, 1), 0.2);
+        if (change_asteroid_timer.is_done())
+            ast = Asteroid3d(Vector3d(90, 0, 0), 30);
         ast.render_solid(window, Parameters::window_width, Parameters::window_height, camera);
 
         window.display();
