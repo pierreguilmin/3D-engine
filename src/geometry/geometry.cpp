@@ -84,17 +84,11 @@ Vector3d& Ellipsoid3d::_point_at(const size_t circle_idx, const size_t point_idx
 Asteroid3d::Asteroid3d(const Vector3d &_center,
                        const double size,
                        const unsigned asteroid_complexity) : Ellipsoid3d(_center,
-                                                                         size,
-                                                                         size,
-                                                                         size * rand(1.0, 2.5),
-                                                                         50,
-                                                                         40,
-                                                                         false,
-                                                                         false) {
+                                                                         size, size, size * rand(1.0, 2.5),
+                                                                         50, 40,
+                                                                         false, false) {
 
     *this += -Vector3d(_center);
-
-    bool make_asteroid = true;
 
     for (int i = 0; i < nb_circles; ++i) {
         for (int j = 0; j < nb_points_per_circle; ++j) {
@@ -103,7 +97,7 @@ Asteroid3d::Asteroid3d(const Vector3d &_center,
                                                         60, 110,
                                                         20, 80));
 
-            if (make_asteroid && i > 4 && i < nb_circles - 4 && rand(0, asteroid_complexity) == 0) {
+            if (i > 4 && i < nb_circles - 4 && rand(0, asteroid_complexity) == 0) {
 
                 const double amplitude = rand(0.1, 0.2) * (rand(0, 2) * 2 - 1);
                 const int radius = rand(4.0, nb_points_per_circle / 4.0), sub_radius = rand(3.0, nb_circles / 6.0);
