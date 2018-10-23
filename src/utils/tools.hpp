@@ -17,6 +17,8 @@ double as_radians(const double theta);
 double as_degrees(const double theta);
 int rand(const int a, const int b);
 double rand(const double a, const double b);
-sf::Color get_random_colour();
+sf::Color get_random_colour(const int r_min = 0, const int r_max = 255,
+                            const int g_min = 0, const int g_max = 255,
+                            const int b_min = 0, const int b_max = 255);
 
 #endif

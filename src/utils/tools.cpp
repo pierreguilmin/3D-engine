@@ -65,6 +65,10 @@ double rand(const double a, const double b) {
 }
 
 // returns a sf::Color object having random rgb values (ie a random colour)
-sf::Color get_random_colour() {
-	return sf::Color(rand(0, 256), rand(0, 256), rand(0, 256));
+sf::Color get_random_colour(const int r_min, const int r_max,
+                            const int g_min, const int g_max,
+                            const int b_min, const int b_max) {
+	return sf::Color(rand(r_min, r_max + 1),
+	                 rand(g_min, g_max + 1),
+	                 rand(b_min, b_max + 1));
 }
