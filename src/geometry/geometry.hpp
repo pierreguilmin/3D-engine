@@ -23,7 +23,7 @@ public:
 class Ellipsoid3d : public Solid3d {
 protected:
     std::vector<Vector3d> points;
-    const unsigned nb_circles, nb_points_per_circle;
+    int nb_circles, nb_points_per_circle;
 
 public:
     Ellipsoid3d(const Vector3d &_center, 
@@ -67,7 +67,8 @@ class Asteroid3d : public Ellipsoid3d {
 
 public:
     Asteroid3d(const Vector3d &_center, 
-               const double size);
+               const double size,
+               const unsigned asteroid_complexity = 10);
 };
 
 #endif

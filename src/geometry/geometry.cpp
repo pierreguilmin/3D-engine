@@ -43,10 +43,10 @@ Ellipsoid3d::Ellipsoid3d(const Vector3d &_center,
                                                               nb_circles(_nb_circles),
                                                               nb_points_per_circle(_nb_points_per_circle) {
 
-    for (unsigned i = 0; i < nb_circles; ++i) {
+    for (int i = 0; i < nb_circles; ++i) {
         double theta = map(i, 0, nb_circles - 1, -88, 88);
 
-        for (unsigned j = 0; j < nb_points_per_circle; ++j) {
+        for (int j = 0; j < nb_points_per_circle; ++j) {
             double phi = map(j, 0, nb_points_per_circle, -180, 180);
 
             points.push_back(Vector3d(a * cos(as_radians(theta)) * cos(as_radians(phi)),
@@ -61,8 +61,8 @@ Ellipsoid3d::Ellipsoid3d(const Vector3d &_center,
 }
 
 void Ellipsoid3d::_add_segments(const bool add_latitude_segments, const bool add_longitude_segments) {
-    for (unsigned i = 0; i < nb_circles; ++i) {
-        for (unsigned j = 0; j < nb_points_per_circle; ++j) {
+    for (int i = 0; i < nb_circles; ++i) {
+        for (int j = 0; j < nb_points_per_circle; ++j) {
 
             if (add_latitude_segments)
                 add_segment(Segment3d(_point_at(i, j),  _point_at(i, j - 1)));
@@ -81,34 +81,41 @@ Vector3d& Ellipsoid3d::_point_at(const size_t circle_idx, const size_t point_idx
 // ### Asteroid3d ###############################
 // ##############################################
 
-Asteroid3d::Asteroid3d(const Vector3d &_center, const double size) : Ellipsoid3d(_center,
-                                                                                 size, size, size * 2,
-                                                                                 50,
-                                                                                 100,
-                                                                                 false,
-                                                                                 false) {
+Asteroid3d::Asteroid3d(const Vector3d &_center,
+                       const double size,
+                       const unsigned asteroid_complexity) : Ellipsoid3d(_center,
+                                                                         size,
+                                                                         size,
+                                                                         size * rand(1.0, 2.5),
+                                                                         50,
+                                                                         40,
+                                                                         false,
+                                                                         false) {
 
     *this += -Vector3d(_center);
 
     bool make_asteroid = true;
 
-    for (unsigned i = 0; i < nb_circles; ++i) {
-        for (unsigned j = 0; j < nb_points_per_circle; ++j) {
+    for (int i = 0; i < nb_circles; ++i) {
+        for (int j = 0; j < nb_points_per_circle; ++j) {
 
-            if (make_asteroid && j == 5 && i == 20) {
+            _point_at(i, j).set_color(get_random_colour(110, 160,
+                                                        60, 110,
+                                                        20, 80));
 
-                _point_at(i, j).set_color(sf::Color::Red);
+            if (make_asteroid && i > 4 && i < nb_circles - 4 && rand(0, asteroid_complexity) == 0) {
 
-                const double amplitude = 1.0;
-                const int radius = 15, sub_radius = 7;
+                const double amplitude = rand(0.1, 0.2) * (rand(0, 2) * 2 - 1);
+                const int radius = rand(4.0, nb_points_per_circle / 4.0), sub_radius = rand(3.0, nb_circles / 6.0);
 
                 for (int k = - radius; k <= radius; ++k) {
                     for (int l = - sub_radius; l <= sub_radius; ++l) {
                         const double factor = 1.0 + map_gaussian_2d(k, -radius, radius,
                                                                     l, -sub_radius, sub_radius,
                                                                     amplitude);
-                        _point_at(i + l, j + k)  *= factor;
-                        _point_at(i + l, j + k).set_color(sf::Color::Red);
+                        if (i + l >= 0 && i + l < nb_circles) {
+                            _point_at(i + l, j + k)  *= factor;
+                        }
                     }
                 }
             }
