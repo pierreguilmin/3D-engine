@@ -32,6 +32,7 @@ public:
 	Camera3d operator+=(const Vector3d &v);
 
 	// others
+	Vector3d get_position() const { return position; }
 	void reload_frustrum(const unsigned window_width, const unsigned window_height);
 	void rotate(const double mouse_move_x, const double mouse_move_y);
 	void move(const DIRECTION direction);
