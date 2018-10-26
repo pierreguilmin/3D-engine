@@ -27,6 +27,8 @@ Cube3d::Cube3d(const Vector3d &_center, const double size) : Solid3d() {
     }
 
     *this += _center;
+
+    set_max_size(size * sqrt(3));
 }
 
 
@@ -58,6 +60,8 @@ Ellipsoid3d::Ellipsoid3d(const Vector3d &_center,
     _add_segments(add_latitude_segments, add_longitude_segments);
 
     *this += _center;
+
+    set_max_size(std::max({a, b, c}));
 }
 
 void Ellipsoid3d::_add_segments(const bool add_latitude_segments, const bool add_longitude_segments) {
@@ -85,7 +89,7 @@ Asteroid3d::Asteroid3d(const Vector3d &_center,
                        const double size,
                        const unsigned asteroid_complexity) : Ellipsoid3d(_center,
                                                                          size, size, size * rand(1.0, 2.5),
-                                                                         50, 40,
+                                                                         20, 20,
                                                                          false, false) {
 
     *this += -Vector3d(_center);
@@ -119,5 +123,7 @@ Asteroid3d::Asteroid3d(const Vector3d &_center,
     _add_segments(true, true);
 
     *this += _center;
+
+    get_max_size();
 }
 

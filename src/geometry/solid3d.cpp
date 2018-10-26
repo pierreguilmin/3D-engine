@@ -36,8 +36,21 @@ Solid3d Solid3d::operator+=(const Vector3d &v) {
 // ### others ###################################
 // ##############################################
 
+void Solid3d::get_max_size() {
+    for (auto s : edges)
+        max_size = std::max({max_size, (s.a - center).norm(), (s.b - center).norm()});
+}
+
 // #TODO: missing comment
 void Solid3d::render_solid(sf::RenderWindow &window, const unsigned window_width, const unsigned window_height, const Camera3d &camera) {
+
+    // check if center is too far from frustrum
+    for (auto side : camera.frustrum) {
+        const Vector3d temp_center = camera.transform_vector(center);
+        if (side.get_signed_distance_from_point_to_plane(temp_center) <= - max_size)
+            return;
+    }
+
     figure.clear();
 
     for (auto s : edges) {
