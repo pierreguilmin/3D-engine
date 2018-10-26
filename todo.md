@@ -50,10 +50,12 @@
 * `Plane3d`
     - [x] :eyes: check friend declarations
     - [x] :eyes: check every `// others` methods
+    - [ ] :flashlight: rename `get_signed_distance_from_point_to_plane()` to vector
 
 * `Solid3d`
     - [ ] :eyes: check every `// other` methods
     - [x] :tada: remove `SOLID_TYPE` enum and constructor and create custom cube, sphere and other solid classes
+    - [ ] :tada: add `max_size` object handling and improve rendering performances
 
 * `Camera3d`
     - [x] :eyes: check every `// other` methods
@@ -62,6 +64,7 @@
 * `geometry.*`
     - [x] :warning: pole point of the sphere repeated
     - [ ] :tada: add multiple kernels for asteroids creation (gaussian, cos, abs, ...)
+    - [ ] :tada: work on the asteroids parameters range / adaptability with `nb_circles`, `nb_points_per_circle`
 
 
 ### :clipboard:
@@ -78,5 +81,6 @@
     - [ ] :clipboard: `handle_intersection_of_segment_with_plane()` if `da = db = 0` return `false`
 * `Solid3d`
     - [ ] :clipboard: in `rotate_around_vector()` don't pass `rotation_center` by reference: explain why
+    - [ ] :clipboard: necessary to specify `max_size` to improve rendering performances
 
 
