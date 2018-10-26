@@ -45,10 +45,12 @@ void Solid3d::get_max_size() {
 void Solid3d::render_solid(sf::RenderWindow &window, const unsigned window_width, const unsigned window_height, const Camera3d &camera) {
 
     // check if center is too far from frustrum
-    for (auto side : camera.frustrum) {
-        const Vector3d temp_center = camera.transform_vector(center);
-        if (side.get_signed_distance_from_point_to_plane(temp_center) <= - max_size)
-            return;
+    if (max_size >= 0) {
+        for (auto side : camera.frustrum) {
+            const Vector3d temp_center = camera.transform_vector(center);
+            if (side.get_signed_distance_from_point_to_plane(temp_center) <= - max_size)
+                return;
+        }
     }
 
     figure.clear();
