@@ -17,6 +17,7 @@
 - [ ] :tada: `README.md`: correct, improve and clarify
 - [ ] :tada: setup matrix and vector multiplication and write every formula under a matrix form
 - [ ] :tada: write test for every class
+- [ ] :tada: add `constexpr` keyword
 
 * `src/main.cpp`
     - [ ] :eyes: check all
@@ -46,6 +47,7 @@
 
 * `Segment3d`
     - [x] :eyes: check friend declarations
+    - [ ] :tada: references to Vector3d rather than holding objects
 
 * `Plane3d`
     - [x] :eyes: check friend declarations
@@ -55,7 +57,9 @@
 * `Solid3d`
     - [ ] :eyes: check every `// other` methods
     - [x] :tada: remove `SOLID_TYPE` enum and constructor and create custom cube, sphere and other solid classes
-    - [ ] :tada: add `max_size` object handling and improve rendering performances
+    - [x] :tada: add `max_size` object handling and improve rendering performances
+    - [ ] :tada: make vector of Vector3d rather than holding Vector3d in Segment3d
+    - [ ] :tada: precompute rotation cos and sin
 
 * `Camera3d`
     - [x] :eyes: check every `// other` methods
