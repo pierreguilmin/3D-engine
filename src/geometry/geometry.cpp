@@ -82,9 +82,9 @@ size_t Ellipsoid3d::_index_point_at(const size_t circle_idx, const size_t point_
     return mod(circle_idx, nb_circles) * nb_points_per_circle + mod(point_idx, nb_points_per_circle);
 }
 
-// // ##############################################
-// // ### Asteroid3d ###############################
-// // ##############################################
+// ##############################################
+// ### Asteroid3d ###############################
+// ##############################################
 
 Asteroid3d::Asteroid3d(const Vector3d &_center,
                        const double size,
