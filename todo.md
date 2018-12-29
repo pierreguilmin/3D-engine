@@ -1,14 +1,15 @@
 # todo list
 
-| emoji       | meaning                      |
-| :---------: | :--------------------------- |
-| :sos:       | critical bug                 |
-| :warning:   | bug                          |
-| :eyes:      | to check                     |
-| :flashlight:| simplification/clarification |
-| :clipboard: | comment                      |
-| :sparkles:  | typos and style              |
-| :tada:      | new feature                  |
+| emoji        | meaning                      | code           |
+| :----------: | :--------------------------- | :------------- |
+| :sos:        | critical bug                 | `:sos:`        |
+| :warning:    | bug                          | `:warning:`    |
+| :eyes:       | to check                     | `:eyes:`       |
+| :flashlight: | simplification/clarification | `:flashlight:` |
+| :clipboard:  | comment                      | `:clipboard:`  |
+| :sparkles:   | typos & style                | `:sparkles:`   |
+| :tada:       | new feature                  | `:tada:`       |
+| :cloud:      | minor modification           | `:cloud:`      |
 
 
 ### General
