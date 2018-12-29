@@ -9,7 +9,7 @@ class AsteroidsField {
 private:
     std::vector<Asteroid3d> asteroids;
     std::vector<Vector3d> rotation_axes;
-    std::vector<unsigned> rotation_speeds;
+    std::vector<double> rotation_speeds;
 
 public:
     // constructors

@@ -12,7 +12,7 @@ int main()
     sf::Clock loop_timer;
     sf::Clock current_time;
 
-	srand(time(NULL));
+	srand(time(nullptr));
 
 
     // setup window
@@ -57,15 +57,15 @@ int main()
         camera.rotate(Mouse::get_move_x(window), Mouse::get_move_y(window));
 
         // move camera
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
             camera.move(Camera3d::DIRECTION::FRONT);
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
             camera.move(Camera3d::DIRECTION::BACK);
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
             camera.move(Camera3d::DIRECTION::RIGHT);
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-            camera.move(Camera3d::DIRECTION::LEFT);
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
+            camera.move(Camera3d::DIRECTION::LEFT);
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
             camera.move(Camera3d::DIRECTION::UP);
         if(sf::Keyboard::isKeyPressed(sf::Keyboard::E))
             camera.move(Camera3d::DIRECTION::DOWN);
@@ -75,12 +75,6 @@ int main()
 
         field.move_objects();
         field.render_objects(window, Parameters::window_width, Parameters::window_height, camera);
-
-
-        //ast.rotate_around_vector(Vector3d(0, 0, 0), Vector3d(0, 1, 0), 1);
-        //ast.rotate(Vector3d(0, 1, 1), 3);
-        // for (auto ast : asts)
-        //     ast.render_solid(window, Parameters::window_width, Parameters::window_height, camera);
 
         window.display();
 

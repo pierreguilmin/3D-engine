@@ -37,7 +37,6 @@ public:
 	void rotate(const double mouse_move_x, const double mouse_move_y);
 	void move(const DIRECTION direction);
 	Vector3d transform_vector(const Vector3d &v) const;
-	Segment3d transform_segment(const Segment3d &s) const;
 
 
 friend class Solid3d;

@@ -97,7 +97,3 @@ Vector3d Camera3d::transform_vector(const Vector3d &v) const {
 					 sx * (cy * z + sy * (sz * y + cz * x)) + cx * (cz * y - sz * x),
 					 cx * (cy * z + sy * (sz * y + cz * x)) - sx * (cz * y - sz * x), v.color));
 }
-
-Segment3d Camera3d::transform_segment(const Segment3d &s) const {
- 	return Segment3d(transform_vector(s.a), transform_vector(s.b));
-}

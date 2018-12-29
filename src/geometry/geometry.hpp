@@ -22,7 +22,6 @@ public:
 // ##############################################
 class Ellipsoid3d : public Solid3d {
 protected:
-    std::vector<Vector3d> points;
     int nb_circles, nb_points_per_circle;
 
 public:
@@ -35,7 +34,7 @@ public:
 
 protected:
     void _add_segments(const bool add_latitude_segments, const bool add_longitude_segments);
-    Vector3d& _point_at(const size_t circle_idx, const size_t point_idx);
+    size_t _index_point_at(const size_t circle_idx, const size_t point_idx);
 };
 
 
