@@ -6,18 +6,20 @@
 
 class Segment3d {
 private:
-    Vector3d a, b;
-
+    size_t i, j;
+    
 public:
     // constructors
-    Segment3d() : a(Vector3d()), b(Vector3d()) {}
-    Segment3d(const Vector3d &_a, const Vector3d &_b) : a(_a), b(_b) {}
-    Segment3d(const Vector3d &_a, const Vector3d &_b, const sf::Color _color) : a(_a, _color), b(_b, _color) {}
-    Segment3d(const Segment3d &s) : a(s.a), b(s.b) {}
+    Segment3d() : i(0), j(0) {}
+    Segment3d(const size_t _i, const size_t _j) : i(_i), j(_j) {}
+    Segment3d(const Segment3d &s) : i(s.i), j(s.j) {}
 
     // operators
     Segment3d& operator=(const Segment3d &s);
-    Segment3d operator+=(const Vector3d &v);
+
+    // others
+    Vector3d& get_a(std::vector<Vector3d> &points) const { return points[i]; }
+    Vector3d& get_b(std::vector<Vector3d> &points) const { return points[j]; }
 
 
 friend class Plane3d;

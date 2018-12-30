@@ -12,7 +12,7 @@ AsteroidsField::AsteroidsField(const Vector3d &center,
         asteroids.push_back(Asteroid3d(center + offset, rand(10, 50), 2));
 
         rotation_axes.push_back(Vector3d(rand(0.0, 1.0), rand(0.0, 1.0), rand(0.0, 1.0)));
-        rotation_speeds.push_back(rand(1, 5));
+        rotation_speeds.push_back(rand(-5.0, 5.0));
     }
 }
 

@@ -1,14 +1,15 @@
 # todo list
 
-| emoji       | meaning                      |
-| :---------: | :--------------------------- |
-| :sos:       | critical bug                 |
-| :warning:   | bug                          |
-| :eyes:      | to check                     |
-| :flashlight:| simplification/clarification |
-| :clipboard: | comment                      |
-| :sparkles:  | typos and style              |
-| :tada:      | new feature                  |
+| emoji        | meaning                      | code           |
+| :----------: | :--------------------------- | :------------- |
+| :sos:        | critical bug                 | `:sos:`        |
+| :warning:    | bug                          | `:warning:`    |
+| :eyes:       | to check                     | `:eyes:`       |
+| :flashlight: | simplification/clarification | `:flashlight:` |
+| :clipboard:  | comment                      | `:clipboard:`  |
+| :sparkles:   | typos & style                | `:sparkles:`   |
+| :tada:       | new feature                  | `:tada:`       |
+| :cloud:      | minor modification           | `:cloud:`      |
 
 
 ### General
@@ -18,6 +19,7 @@
 - [ ] :tada: setup matrix and vector multiplication and write every formula under a matrix form
 - [ ] :tada: write test for every class
 - [ ] :tada: add `constexpr` keyword
+- [ ] :sparkles: edit old commit messages to match emoji commit code table
 
 * `src/main.cpp`
     - [ ] :eyes: check all
@@ -44,10 +46,11 @@
 
 * `Vector3d`
     - [x] :eyes: check friend declarations
+    - [ ] :tada: pre-compute every rotation cos/sin
 
 * `Segment3d`
     - [x] :eyes: check friend declarations
-    - [ ] :tada: references to Vector3d rather than holding objects
+    - [x] :tada: references to Vector3d rather than holding objects
 
 * `Plane3d`
     - [x] :eyes: check friend declarations
@@ -59,11 +62,12 @@
     - [x] :tada: remove `SOLID_TYPE` enum and constructor and create custom cube, sphere and other solid classes
     - [x] :tada: add `max_size` object handling and improve rendering performances
     - [ ] :tada: make vector of Vector3d rather than holding Vector3d in Segment3d
-    - [ ] :tada: precompute rotation cos and sin
+    - [ ] :eyes: check if intersection with window is perfect
 
 * `Camera3d`
     - [x] :eyes: check every `// other` methods
     - [x] :eyes: check constructor
+    - [ ] :tada: pre-compute cos/sin of theta_x/y/z
 
 * `geometry.*`
     - [x] :warning: pole point of the sphere repeated
@@ -86,5 +90,3 @@
 * `Solid3d`
     - [ ] :clipboard: in `rotate_around_vector()` don't pass `rotation_center` by reference: explain why
     - [ ] :clipboard: necessary to specify `max_size` to improve rendering performances
-
-

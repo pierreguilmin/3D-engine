@@ -9,25 +9,25 @@ This project is a 3d-rendering engine made from scratch in C++ **without using a
 ![demo.gif](game_snapshots/demo.gif)
 
 
-### Work with this repository
+## Work with this repository
 
 :warning: Because I just created this repository the project is still not well commented, come back soon!
 
-##### Clone the repository
+### Clone the repository
 
 To clone this repository on your local computer please run:
 ```bash
 $ git clone https://github.com/PierreGuilmin/3D-engine.git
 ```
 
-##### Install SFML
+### Install SFML
 This project was written in **C++** (C++11). It uses the open-source library [SFML](https://www.sfml-dev.org/index.php) (SFML 2.5.0) which is a cross-platform library written in C++ to open windows, draw 2d lines/images, handle the keyboard and the mouse... The easiest way to install it on macOS is by using the (famous) 🍺[Homebrew](https://brew.sh) package manager:
 ```bash
 $ brew install sfml
 ```
 Otherwise for Windows user the library can be compiled from source on the SFML website under the [Download](https://www.sfml-dev.org/download/sfml/2.5.0/index.php) section.
 
-##### Compile the project
+### Compile the project
 The default compiler used in the makefile is `clang++`. Running the following command in the project folder will compile the sources and create an executable called **3D-engine**:
 ```bash
 $ make
@@ -49,8 +49,31 @@ CXX      = g++
 CXXFLAGS = -Wall -Wno-c++11-extensions
 ```
 
+### Emoji commit code table
 
-### Another 3d engine?!
+Please use the following table to commit code:
+
+| emoji        | meaning                      | code           |
+| :----------: | :--------------------------- | :------------- |
+| :sos:        | critical bug                 | `:sos:`        |
+| :warning:    | bug                          | `:warning:`    |
+| :eyes:       | to check                     | `:eyes:`       |
+| :flashlight: | simplification/clarification | `:flashlight:` |
+| :clipboard:  | comment                      | `:clipboard:`  |
+| :sparkles:   | typos & style                | `:sparkles:`   |
+| :tada:       | new feature                  | `:tada:`       |
+| :cloud:      | minor modification           | `:cloud:`      |
+
+For example if you want to commit a new rocket feature — `🎉 new feature, flying rocket!` — please do:
+```diff
+# bad syntax
+- $ git commit -m 'new feature, flying rocket!'
+
+# good syntax
++ $ git commit -m ':tada: new feature, flying rocket!'
+```
+
+## Another 3d engine?!
 
 This is a project I did on my own during my free time because I was curious about 3d rendering and wanted to practice C++. The goal was to render 3d objects on my screen without using any 3d libraries like OpenGL, doing every projections from the 3d space to the 2d screen on my own, as well as handling the camera rotation and objects movements. The only library used is the 2d library [SFML](https://www.sfml-dev.org/index.php).
 
@@ -58,15 +81,15 @@ See under a view of the basic scene proposed in `main.cpp` (the application is o
 ![basic_scene.png](game_snapshots/basic_scene.png)
 
 
-### The commands
+## The commands
 
 The commands to move in the 3d space are really intuitive and shouln't cause any trouble:
 * Move your mouse to see around
-* Use `W` (front), `A` (left), `S` (back), `D` (right) to move (front and back are going in the direction where your mouse points)
-* Use `Q` (up), `E` (down) to move along the third axis
+* Use `Z` (front), `Q` (left), `S` (back), `D` (right) to move (front and back are going in the direction where your mouse points)
+* Use `A` (up), `E` (down) to move along the third axis
 
 
-### The code architecture
+## The code architecture
 **`/src/utils`**  
 Implement basic helpers class and functions:
 * `mouse.hpp` and `mouse.cpp`: facilitate the access to the mouse last movement
