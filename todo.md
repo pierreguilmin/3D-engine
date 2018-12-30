@@ -19,6 +19,7 @@
 - [ ] :tada: setup matrix and vector multiplication and write every formula under a matrix form
 - [ ] :tada: write test for every class
 - [ ] :tada: add `constexpr` keyword
+- [ ] :sparkles: edit old commit messages to match emoji commit code table
 
 * `src/main.cpp`
     - [ ] :eyes: check all
