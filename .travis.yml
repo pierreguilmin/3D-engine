@@ -1,0 +1,16 @@
+language: cpp
+os:
+    - linux
+    - osx
+compiler: clang
+
+install:
+    - if [[ "$TRAVIS_OS_NAME" == "osx"   ]]; then
+        brew install sfml;
+        fi
+    - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
+        sudo apt-get install libsfml-dev;
+        fi
+
+script:
+    - make compile

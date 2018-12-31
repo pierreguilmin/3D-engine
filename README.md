@@ -1,8 +1,10 @@
+[![Travis CI badge](https://travis-ci.org/PierreGuilmin/3D-engine.svg?branch=master)](https://travis-ci.org/PierreGuilmin/3D-engine)
+
+:construction: Work in progress... :construction:
+
 # 3D-engine
 
 This project is a 3d-rendering engine made from scratch in C++ **without using any 3d-rendering libraries** (like OpenGL or so).
-
-:construction: Work in progress... :construction:
 
 ***
 
@@ -21,11 +23,22 @@ $ git clone https://github.com/PierreGuilmin/3D-engine.git
 ```
 
 ### Install SFML
-This project was written in **C++** (C++11). It uses the open-source library [SFML](https://www.sfml-dev.org/index.php) (SFML 2.5.0) which is a cross-platform library written in C++ to open windows, draw 2d lines/images, handle the keyboard and the mouse... The easiest way to install it on macOS is by using the (famous) 🍺[Homebrew](https://brew.sh) package manager:
+This project was written in **C++** (C++11). It uses the open-source library [SFML](https://www.sfml-dev.org/index.php) (SFML 2.5.0) which is a cross-platform library written in C++ to open windows, draw 2d lines/images, handle the keyboard and the mouse...
+
+##### macOS
+The easiest way to install SFML on macOS is by using the (famous) 🍺[Homebrew](https://brew.sh) package manager:
 ```bash
 $ brew install sfml
 ```
-Otherwise for Windows user the library can be compiled from source on the SFML website under the [Download](https://www.sfml-dev.org/download/sfml/2.5.0/index.php) section.
+
+##### Linux
+Linux users can do the following:
+```bash
+$ sudo apt-get install libsfml-dev
+```
+
+##### Windows
+For Windows user the library can be compiled from source on the SFML website under the [Download](https://www.sfml-dev.org/download/sfml/2.5.0/index.php) section.
 
 ### Compile the project
 The default compiler used in the makefile is `clang++`. Running the following command in the project folder will compile the sources and create an executable called **3D-engine**:

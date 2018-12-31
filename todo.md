@@ -12,14 +12,20 @@
 | :cloud:      | minor modification           | `:cloud:`      |
 
 
+### Git/GitHub
+- [ ] :tada: `README.md`: correct, improve and clarify
+- [ ] :sparkles: edit old commit messages to match emoji commit code table
+- [ ] :tada: Travis CI: add simulated GUI
+- [ ] :tada: Travis CI: add Windows
+- [ ] :flashlight: update `README.md` Windows SFML installation instructions
+
+
 ### General
 - [x] :eyes: `makefile` flags: remove `-std=c++11`
 - [x] :flashlight: handle dependencies
-- [ ] :tada: `README.md`: correct, improve and clarify
 - [ ] :tada: setup matrix and vector multiplication and write every formula under a matrix form
 - [ ] :tada: write test for every class
 - [ ] :tada: add `constexpr` keyword
-- [ ] :sparkles: edit old commit messages to match emoji commit code table
 
 * `src/main.cpp`
     - [ ] :eyes: check all
