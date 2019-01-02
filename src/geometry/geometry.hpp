@@ -44,10 +44,10 @@ protected:
 
 class Sphere3d : public Ellipsoid3d {
 public:
-    Sphere3d(const Vector3d &_center, 
+    Sphere3d(const Vector3d &_center,
              const double size,
-             const unsigned _nb_circles,
-             const unsigned _nb_points_per_circle,
+             const unsigned _nb_circles=20,
+             const unsigned _nb_points_per_circle=50,
              const bool add_latitude_segments=true,
              const bool add_longitude_segments=false) : Ellipsoid3d(_center,
                                                                     size, size, size,
@@ -67,7 +67,7 @@ class Asteroid3d : public Ellipsoid3d {
 public:
     Asteroid3d(const Vector3d &_center, 
                const double size,
-               const unsigned asteroid_complexity = 10);
+               const unsigned asteroid_complexity=3);
 };
 
 #endif
