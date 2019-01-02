@@ -26,6 +26,7 @@
 - [ ] :tada: setup matrix and vector multiplication and write every formula under a matrix form
 - [ ] :tada: write test for every class
 - [ ] :tada: add `constexpr` keyword
+- [ ] :warning: replace leading underscores by ending underscores in all constructors declaration
 
 * `src/main.cpp`
     - [ ] :eyes: check all
