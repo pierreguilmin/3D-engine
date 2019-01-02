@@ -1,4 +1,4 @@
-[![Travis CI badge](https://travis-ci.org/PierreGuilmin/3D-engine.svg?branch=solids_field_template)](https://travis-ci.org/PierreGuilmin/3D-engine)
+[![Travis CI badge](https://travis-ci.org/PierreGuilmin/3D-engine.svg?branch=asteroids)](https://travis-ci.org/PierreGuilmin/3D-engine)
 
 :construction: Work in progress... :construction:
 
