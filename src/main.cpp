@@ -1,7 +1,8 @@
 #include "utils/mouse.hpp"
 #include "utils/parameters.hpp"
 #include "geometry/camera3d.hpp"
-#include "asteroids_field.hpp"
+#include "geometry/geometry.hpp"
+#include "solid3d_field.hpp"
 
 using std::cout;
 using std::endl;
@@ -27,7 +28,7 @@ int main()
     Camera3d camera(Vector3d(0, -120, -230), -30, 0, 0, Parameters::window_width, Parameters::window_height);
 
     // create asteroids field
-    AsteroidsField field(camera.get_position(), 100, 500);
+    Solid3dField field(SolidType<Asteroid3d>(), camera.get_position(), 100, 500);
 
 
     loop_timer.restart();
@@ -73,8 +74,8 @@ int main()
         // rendering
         window.clear();
 
-        field.move_objects();
-        field.render_objects(window, Parameters::window_width, Parameters::window_height, camera);
+        field.move();
+        field.render(window, Parameters::window_width, Parameters::window_height, camera);
 
         window.display();
 
